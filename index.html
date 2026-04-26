@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Élise Trécul — Content & Brand Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+/* ─── CSS VARIABLES ────────────────────────────────────────────────────── */
+:root {
+  --paper:         #FAFAF7;
+  --sheet-border:  #E8E5DE;
+  --folder:        #F2EFE8;
+  --folder-border: #DAD6CD;
+  --desk:          #1A1A1C;
+
+  --ink:           #0F0F10;
+  --ink-mid:       #4A4A4E;
+  --ink-light:    #8A8A8E;
+  --ink-faint:    #B8B8BC;
+
+  --rose:          #D4537E;
+  --rose-faint:    rgba(212, 83, 126, 0.12);
+
+  --logo-blush:    #F4D1D8;
+  --logo-dark:     #47101A;
+}
+
+/* ─── RESET & BASE ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  background-color: var(--desk);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem 4rem;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, auto;
+}
+
+/* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+.name-hero      { font-family: 'Instrument Serif', serif; font-size: 40px; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); line-height: 1.05; }
+.body-copy      { font-family: 'Geist', sans-serif; font-size: 15px; font-weight: 400; line-height: 1.7; color: var(--ink-mid); }
+.section-label  { font-family: 'Geist', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
+.cv-meta        { font-family: 'Geist', sans-serif; font-size: 13px; font-style: italic; color: var(--ink-light); }
+.micro-tagline  { font-family: 'Instrument Serif', serif; font-size: 13px; font-style: italic; font-weight: 400; color: var(--ink-light); }
+.footnote-tag   { font-family: 'Instrument Serif', serif; font-size: 12px; font-style: italic; color: var(--ink-faint); }
+.stat-num       { font-family: 'Instrument Serif', serif; font-size: 28px; font-weight: 400; color: var(--rose); letter-spacing: -0.02em; line-height: 1; }
+
+/* ─── FOLDER WRAPPER ───────────────────────────────────────────────────── */
+.folder-wrap {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+}
+
+/* ─── TABS ─────────────────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  align-items: flex-end;
+  padding-left: 2.5rem;
+  position: relative;
+  z-index: 2;
+  gap: 3px;
+}
+
+.tab-btn {
+  height: 32px;
+  padding: 0 1rem;
+  background: var(--folder);
+  border: 0.5px solid var(--folder-border);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+  position: relative;
+  bottom: -0.5px;
+}
+
+.tab-btn:hover { color: var(--ink); filter: drop-shadow(0 0 4px rgba(212,83,126,0.25)); }
+
+.tab-btn.active {
+  background: var(--paper);
+  color: var(--ink);
+  border-bottom: 2px solid var(--paper);
+  z-index: 3;
+}
+
+.tab-btn.visited { color: var(--rose); }
+.tab-btn.visited.active { color: var(--ink); }
+
+/* ─── FOLDER BODY ──────────────────────────────────────────────────────── */
+.folder-body {
+  background: var(--folder);
+  border: 0.5px solid var(--folder-border);
+  border-radius: 0 6px 6px 6px;
+  padding: 2rem;
+  min-height: 560px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── PAPERCLIP ────────────────────────────────────────────────────────── */
+.paperclip {
+  position: absolute;
+  top: -14px;
+  right: 2.5rem;
+  z-index: 10;
+  cursor: default;
+  transition: filter 200ms ease;
+}
+.paperclip:hover { filter: brightness(1.15); }
+
+/* ─── ACTIVE SHEET ─────────────────────────────────────────────────────── */
+.sheet {
+  background-color: var(--paper);
+  border: 0.5px solid var(--sheet-border);
+  border-radius: 3px;
+  position: relative;
+  min-height: 500px;
+  padding: 2.5rem 2.5rem 2.5rem 3.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* Margin line — the only structural rose element */
+.sheet::before {
+  content: '';
+  position: absolute;
+  left: 2.5rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 1px;
+  background: rgba(212, 83, 126, 0.18);
+  pointer-events: none;
+}
+
+/* Sheet transition states */
+.sheet {
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.sheet.exiting {
+  opacity: 0;
+  transform: translateX(18px) rotate(0.8deg);
+}
+.sheet.entering {
+  opacity: 0;
+  transform: translateX(-14px) rotate(-0.5deg);
+}
+.sheet.settling {
+  animation: settle 280ms ease forwards;
+}
+@keyframes settle {
+  0%   { transform: translateX(-14px) rotate(-0.5deg); opacity: 0; }
+  70%  { transform: translateX(0) rotate(0.2deg); opacity: 1; translateY(-1px); }
+  85%  { transform: translateX(0) rotate(-0.1deg); }
+  100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+
+/* ─── TAGLINE ───────────────────────────────────────────────────────────── */
+.tagline-wrap {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 1;
+  pointer-events: none;
+}
+.tagline-text {
+  font-family: 'Instrument Serif', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+.tagline-text .char { display: inline; }
+.tagline-text .fullstop.glow {
+  filter: drop-shadow(0 0 6px rgba(212,83,126,0.5));
+  color: var(--rose);
+  transition: filter 600ms ease, color 600ms ease;
+}
+
+/* ─── INTERACTIVE ELEMENTS ─────────────────────────────────────────────── */
+.interactive {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, pointer;
+  transition: filter 0.4s ease, color 0.3s ease;
+}
+.interactive:hover { filter: drop-shadow(0 0 4px rgba(212,83,126,0.25)); }
+.interactive.visited { color: var(--rose); }
+
+/* Pencil underline */
+.pencil-link {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, pointer;
+  transition: filter 0.4s ease, color 0.3s ease;
+}
+.pencil-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 0.75px;
+  background: var(--rose);
+  transition: width 250ms ease;
+}
+.pencil-link:hover::after { width: 100%; }
+.pencil-link:hover { filter: drop-shadow(0 0 4px rgba(212,83,126,0.25)); }
+.pencil-link.visited { color: var(--rose); }
+
+/* ─── HOME TAB ──────────────────────────────────────────────────────────── */
+.home-header {
+  padding-bottom: 1.75rem;
+  border-bottom: 0.5px solid var(--sheet-border);
+  margin-bottom: 2.25rem;
+  max-width: 540px;
+}
+.home-subtitle {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-light);
+  margin-top: 8px;
+}
+
+/* Logo pulse — fires once on load */
+@keyframes logoPulse {
+  0%   { filter: drop-shadow(0 0 0px rgba(212,83,126,0)); }
+  40%  { filter: drop-shadow(0 0 8px rgba(212,83,126,0.5)); }
+  100% { filter: drop-shadow(0 0 0px rgba(212,83,126,0)); }
+}
+.sheet-logo {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  animation: logoPulse 1.2s ease-out forwards;
+}
+
+.positioning-statement {
+  font-family: 'Geist', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  max-width: 540px;
+  margin-bottom: 0;
+}
+
+.pull-quote {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink);
+  border-left: 2px solid var(--rose);
+  padding-left: 1.25rem;
+  margin: 2.5rem 0;
+  max-width: 540px;
+  font-weight: 400;
+}
+
+.proof-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2.5rem 0;
+  max-width: 580px;
+}
+.proof-row .stat-num {
+  display: block;
+  margin-bottom: 6px;
+}
+.proof-row .stat-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-light);
+  line-height: 1.35;
+  display: block;
+}
+
+.company-strip {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-light);
+  letter-spacing: 0.03em;
+  flex-wrap: wrap;
+}
+.company-strip .dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  display: inline-block;
+}
+
+.discipline-nav {
+  font-family: 'Geist', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2.6;
+  color: var(--ink-mid);
+  margin-bottom: 0.5rem;
+  max-width: 580px;
+}
+
+.discipline-word {
+  position: relative;
+  display: inline-block;
+  color: var(--ink);
+  border-bottom: 0.5px solid rgba(212, 83, 126, 0.35);
+  padding-bottom: 1px;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, pointer;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.discipline-word:hover {
+  color: var(--rose);
+  border-bottom-color: var(--rose);
+}
+.discipline-word .disc-micro {
+  font-family: 'Instrument Serif', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-light);
+  position: absolute;
+  bottom: -1.8em;
+  left: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+  line-height: 1.4;
+}
+.discipline-word:hover .disc-micro { opacity: 1; }
+.discipline-word.visited { color: var(--rose); border-bottom-color: var(--rose); }
+
+.home-divider {
+  margin: 2.25rem 0;
+  border: none;
+  border-top: 0.5px solid var(--sheet-border);
+  max-width: 580px;
+}
+
+.contact-section .section-label { display: block; margin-bottom: 0.75rem; }
+.contact-line {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-mid);
+  line-height: 1.8;
+}
+.contact-line a {
+  color: var(--ink-mid);
+  text-decoration: none;
+  border-bottom: 0.5px solid transparent;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.contact-line a:hover { color: var(--rose); border-bottom-color: var(--rose); }
+
+/* ─── WORK TAB ──────────────────────────────────────────────────────────── */
+.work-card {
+  border-left: 1.5px solid rgba(212, 83, 126, 0.2);
+  padding: 1rem 1.25rem;
+  background: transparent;
+  position: relative;
+  margin-bottom: 1.25rem;
+  transition: background 250ms ease, border-color 250ms ease;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, pointer;
+}
+.work-card:hover {
+  background: rgba(212, 83, 126, 0.03);
+  border-left-color: var(--rose);
+}
+
+.card-category {
+  font-family: 'Geist', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 0.4rem;
+}
+.card-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+.card-meta {
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-light);
+  margin-bottom: 0.6rem;
+}
+.card-note {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-faint);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.card-stats {
+  display: flex;
+  gap: 2rem;
+  margin: 0.5rem 0 0.75rem;
+  align-items: baseline;
+}
+.stat-item { display: flex; flex-direction: column; gap: 4px; }
+.stat-item .stat-num { font-size: 24px; }
+.stat-item .stat-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-light);
+  letter-spacing: 0;
+}
+
+.card-link {
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--rose);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.4rem;
+  position: relative;
+  border-bottom: 0.5px solid transparent;
+  transition: border-color 200ms ease;
+}
+.card-link:hover { border-bottom-color: var(--rose); }
+
+/* Live link — for live case studies and CV inline references */
+.case-live-link, .cv-live-link {
+  font-family: 'Geist', sans-serif;
+  font-style: italic;
+  color: var(--rose);
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(212, 83, 126, 0.4);
+  padding-bottom: 1px;
+  transition: border-color 200ms ease, filter 200ms ease;
+  white-space: nowrap;
+}
+.case-live-link:hover, .cv-live-link:hover {
+  border-bottom-color: var(--rose);
+  filter: drop-shadow(0 0 4px rgba(212,83,126,0.25));
+}
+
+/* Inline case-study body */
+.case-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms ease, opacity 300ms ease, margin 300ms ease;
+  opacity: 0;
+  margin-top: 0;
+}
+.work-card.expanded .case-body {
+  max-height: 1200px;
+  opacity: 1;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--sheet-border);
+}
+.case-body p {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  margin-bottom: 0.75rem;
+}
+.case-close {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 4px 12px;
+  border: 0.5px solid var(--sheet-border);
+  border-radius: 999px;
+  background: transparent;
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-light);
+  cursor: pointer;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.case-close:hover { color: var(--rose); border-color: var(--rose); }
+
+.video-thumbs {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+  flex-wrap: wrap;
+}
+.video-thumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 0.5px solid var(--sheet-border);
+  border-radius: 999px;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, pointer;
+  transition: border-color 200ms ease, color 200ms ease;
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-mid);
+}
+.video-thumb:hover { border-color: var(--rose); color: var(--rose); }
+.video-play-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ─── CV TAB ────────────────────────────────────────────────────────────── */
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid var(--sheet-border);
+  margin-bottom: 1.75rem;
+  padding-right: 60px;
+}
+.cv-header-left h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.cv-header-left p {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-light);
+  margin-top: 6px;
+}
+.pdf-btn {
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-light);
+  border: 0.5px solid var(--sheet-border);
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: transparent;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, pointer;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.pdf-btn:hover { color: var(--rose); border-color: var(--rose); }
+
+.cv-section { margin-bottom: 1.75rem; }
+.cv-section .section-label { display: block; margin-bottom: 1rem; }
+
+.cv-job { margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 0.5px solid var(--sheet-border); }
+.cv-job:last-child { border-bottom: none; }
+.cv-job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; gap: 1rem; }
+.cv-job-company {
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.cv-job-dates {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+}
+.cv-job-role {
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-light);
+  margin-bottom: 8px;
+}
+.cv-job p {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+
+.cv-edu-item, .cv-lang-item, .cv-tools-item {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+
+.cv-updated {
+  position: absolute;
+  bottom: 2rem;
+  left: 3.5rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 10px;
+  font-style: italic;
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
+/* ─── ABOUT TAB ─────────────────────────────────────────────────────────── */
+.about-body {
+  max-width: 560px;
+}
+.about-body p {
+  font-family: 'Geist', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--ink-mid);
+  margin-bottom: 1.5rem;
+}
+
+.about-divider {
+  margin: 1.75rem 0;
+  border: none;
+  border-top: 0.5px solid var(--sheet-border);
+  max-width: 560px;
+}
+
+.about-location {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+}
+
+.cert-badges {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.cert-badge {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-light);
+  border: 0.5px solid var(--sheet-border);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/* ─── PEER QUOTE ON HOME ─────────────────────────────────────────────── */
+.peer-quote {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+  max-width: 480px;
+  margin: 0 0 2.5rem 0;
+  padding: 0;
+  border: none;
+}
+.peer-quote cite {
+  display: block;
+  font-family: 'Geist', sans-serif;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* ─── SKILLS & CHARACTER ─────────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 0.5rem;
+  max-width: 580px;
+  position: relative;
+}
+.skills-grid::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(212, 83, 126, 0.15);
+  transform: translateX(-50%);
+}
+.skills-column-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.75rem;
+}
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.skills-list li {
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.9;
+}
+
+/* ─── NOTES TAB (RECOMMENDATIONS) ────────────────────────────────────── */
+.kind-words-intro {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-light);
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+}
+.kind-quote {
+  border-left: 1px solid rgba(212, 83, 126, 0.25);
+  padding-left: 1.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 560px;
+}
+.kind-quote blockquote {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0 0 0.75rem 0;
+  font-weight: 400;
+}
+.kind-quote .attribution {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  color: var(--ink-light);
+  font-weight: 400;
+  margin: 0;
+}
+.kind-quote .attribution strong {
+  color: var(--ink-mid);
+  font-weight: 500;
+}
+.kind-words-footer-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'Geist', sans-serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-faint);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--ink-faint);
+  padding-bottom: 1px;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.kind-words-footer-link:hover {
+  color: var(--rose);
+  border-bottom-color: var(--rose);
+}
+
+/* ─── ABOUT CONTACT BLOCK ─────────────────────────────────────────────── */
+.about-contact { margin-top: 2rem; }
+.about-contact-line {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.about-contact-details {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.9;
+  margin: 0;
+}
+
+/* ─── PERSISTENT CONTACT FOOTER ──────────────────────────────────────── */
+.persistent-contact {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 3.5rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 10px;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+  z-index: 1;
+  pointer-events: auto;
+}
+.persistent-contact a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.persistent-contact a:hover { color: var(--rose); }
+
+/* ─── TAGLINE FLICKER (on discipline click) ─────────────────────────── */
+.tagline-text .fullstop.flicker {
+  animation: flicker 400ms ease-out;
+}
+@keyframes flicker {
+  0%   { filter: drop-shadow(0 0 6px rgba(212,83,126,0.6)); }
+  50%  { filter: drop-shadow(0 0 10px rgba(212,83,126,0.95)); }
+  100% { filter: drop-shadow(0 0 6px rgba(212,83,126,0.6)); }
+}
+
+/* ─── DISCIPLINE SHEETS ─────────────────────────────────────────────────── */
+.disc-sheet {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--paper);
+  padding: 2.5rem 2.5rem 2.5rem 3.5rem;
+  z-index: 20;
+  overflow-y: auto;
+  border-radius: 3px;
+}
+.disc-sheet::before {
+  content: '';
+  position: absolute;
+  left: 2.5rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 1px;
+  background: rgba(212, 83, 126, 0.18);
+  pointer-events: none;
+}
+.disc-sheet.open { display: block; }
+.disc-sheet.entering {
+  animation: disc-enter 280ms ease forwards;
+}
+@keyframes disc-enter {
+  0%   { opacity: 0; transform: translateX(-20px) rotate(-1deg); }
+  70%  { opacity: 1; transform: translateX(0) rotate(0.3deg); }
+  100% { opacity: 1; transform: translateX(0) rotate(0deg); }
+}
+
+.disc-back-nav {
+  display: inline-block;
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--rose);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Ccircle cx='9' cy='9' r='8' fill='%23F4D1D8' stroke='%2347101A' stroke-width='1.5'/%3E%3Cpath d='M9 5.5 C7 5.5 6 7 6 8.5 C6 10 7 11 8.5 11.5 L8.5 13 L9.5 13 L9.5 11.5 C11 11 12 10 12 8.5 C12 7 11 5.5 9 5.5Z' fill='%2347101A' opacity='0.7'/%3E%3C/svg%3E") 9 9, pointer;
+  transition: color 200ms ease;
+}
+.disc-back-nav:hover { color: var(--ink); }
+
+.disc-name { display: block; margin-bottom: 0.5rem; }
+.disc-tagline {
+  font-family: 'Instrument Serif', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-light);
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.disc-item {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 0.5px solid var(--sheet-border);
+}
+.disc-item:last-of-type { border-bottom: none; }
+.disc-item-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+.disc-item p {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+
+.disc-also-filed {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--sheet-border);
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+.disc-also-filed a {
+  color: var(--ink-light);
+  text-decoration: none;
+  border-bottom: 0.5px solid transparent;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.disc-also-filed a:hover { color: var(--rose); border-bottom-color: var(--rose); }
+
+/* ─── VIDEO OVERLAY ─────────────────────────────────────────────────────── */
+#video-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+#video-overlay.open {
+  display: flex;
+  opacity: 1;
+}
+#video-overlay.closing {
+  opacity: 0;
+}
+.video-close {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  border: none;
+  background: none;
+}
+.video-close:hover { color: rgba(255,255,255,0.8); }
+.video-container {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  padding: 0 1.5rem;
+}
+.video-container iframe,
+.video-container video {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  gap: 0.5rem;
+}
+
+/* Portrait mobile video rotation */
+@media (orientation: portrait) and (max-width: 768px) {
+  #video-overlay.open {
+    width: 100vh;
+    height: 100vw;
+    top: calc((100vh - 100vw) / 2);
+    left: calc((100vw - 100vh) / 2);
+    transform: rotate(90deg);
+    position: fixed;
+  }
+}
+
+/* ─── KEYBOARD SHORTCUT TOOLTIP ─────────────────────────────────────────── */
+#kb-tooltip {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: rgba(255,255,255,0.35);
+  pointer-events: none;
+  z-index: 100;
+  transition: opacity 800ms ease;
+}
+#kb-tooltip.hidden { opacity: 0; }
+
+/* ─── LOGO ANIMATION ────────────────────────────────────────────────────── */
+@keyframes filament-pulse {
+  0%   { opacity: 0.6; }
+  35%  { opacity: 1; }
+  65%  { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+.logo-filament { animation: filament-pulse 1.2s ease forwards; }
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  body { padding: 0; align-items: stretch; cursor: auto; }
+  .folder-wrap { max-width: 100%; }
+  .folder-body { border-radius: 0 4px 4px 4px; padding: 1.25rem 0.75rem; }
+  .sheet { padding: 1.75rem 1.25rem 1.75rem 2rem; }
+  .sheet::before { left: 1.5rem; }
+  .name-hero { font-size: 30px; }
+  .pull-quote { font-size: 18px; margin: 1.75rem 0; }
+  .proof-row { grid-template-columns: 1fr; gap: 1.25rem; margin: 1.75rem 0; }
+  .company-strip { gap: 0.75rem; }
+  .sheet-logo { width: 36px; height: 36px; top: 1.75rem; right: 1.25rem; }
+  .tabs { padding-left: 0.75rem; }
+  .tab-btn { padding: 0 0.6rem; font-size: 10px; }
+  .disc-sheet { padding: 1.75rem 1.25rem 1.75rem 2rem; }
+  .disc-sheet::before { left: 1.5rem; }
+  .tab-btn, .work-card, .video-thumb, .pdf-btn, .discipline-word,
+  .disc-back-nav, .card-link, .case-close { cursor: pointer; }
+  .skills-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .skills-grid::before { display: none; }
+  .discipline-word .disc-micro {
+    white-space: normal;
+    max-width: 260px;
+    line-height: 1.35;
+  }
+  .discipline-nav { line-height: 3; }
+  .persistent-contact { left: 2rem; bottom: 1.5rem; font-size: 9px; display: none; }
+  .peer-quote { font-size: 14px; }
+}
+
+@media (max-width: 380px) {
+  .tab-btn { letter-spacing: 0; padding: 0 0.4rem; }
+  .name-hero { font-size: 26px; }
+}
+
+/* ─── REDUCED MOTION ────────────────────────────────────────────────────── */
+@prefers-reduced-motion: reduce;
+@media (prefers-reduced-motion: reduce) {
+  .sheet, .sheet.exiting, .sheet.entering, .sheet.settling,
+  .disc-sheet.entering, .logo-filament, .tagline-text .char,
+  #video-overlay { animation: none !important; transition: none !important; }
+}
+
+/* ─── PRINT STYLESHEET ──────────────────────────────────────────────────── */
+@media print {
+  body {
+    background: white;
+    padding: 0;
+    display: block;
+    cursor: default;
+  }
+  .folder-wrap { max-width: 100%; }
+  .tabs, .paperclip, .folder-body, .tagline-wrap, #kb-tooltip, #video-overlay { display: none !important; }
+  .sheet {
+    box-shadow: none;
+    border: none;
+    padding: 2.5rem 3.5rem;
+    min-height: auto;
+    background-image: none;
+  }
+  .sheet::before { left: 2.5rem; }
+  .pdf-btn { display: none; }
+  .disc-back-nav { display: none; }
+  .cv-updated { display: block; position: static; margin-top: 2rem; }
+  .cv-print-stamp {
+    display: block !important;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 2rem;
+    font-family: 'Geist', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── KEYBOARD SHORTCUT TOOLTIP ──────────────────────────────────── -->
+<div id="kb-tooltip">keyboard shortcuts: H · W · C · N · A</div>
+
+<!-- ─── VIDEO OVERLAY ───────────────────────────────────────────────── -->
+<div id="video-overlay" role="dialog" aria-label="Video player">
+  <button class="video-close" id="video-close-btn">← back to paper</button>
+  <div class="video-container" id="video-container">
+    <div class="video-placeholder" id="video-placeholder">
+      <span>Video coming soon</span>
+      <span style="font-size:11px; opacity:0.7;">[PENDING]</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MAIN FOLDER ─────────────────────────────────────────────────── -->
+<div class="folder-wrap">
+
+  <!-- Tabs -->
+  <nav class="tabs" role="tablist" aria-label="Portfolio sections">
+    <button class="tab-btn active" data-tab="home" role="tab" aria-selected="true">Home</button>
+    <button class="tab-btn" data-tab="work" role="tab" aria-selected="false">Work</button>
+    <button class="tab-btn" data-tab="cv" role="tab" aria-selected="false">CV</button>
+    <button class="tab-btn" data-tab="notes" role="tab" aria-selected="false">Notes</button>
+    <button class="tab-btn" data-tab="about" role="tab" aria-selected="false">About</button>
+  </nav>
+
+  <!-- Folder body -->
+  <div class="folder-body">
+
+    <!-- Paperclip SVG -->
+    <svg class="paperclip" width="24" height="54" viewBox="0 0 24 54" fill="none" aria-hidden="true">
+      <path d="M12 3 C7 3 3 7 3 12 L3 40 C3 48 8 52 14 52 C20 52 21 46 21 40 L21 16" stroke="#A8A6A0" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M21 16 C21 11 18 7 12 7 C7 7 7 11 7 16 L7 40 C7 44 9 48 12 48 C16 48 17 45 17 40 L17 16" stroke="#A8A6A0" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </svg>
+
+    <!-- Active sheet container -->
+    <div class="sheet" id="active-sheet" role="tabpanel">
+
+      <!-- HOME TAB ──────────────────────────────────────────────── -->
+      <div id="tab-home" class="tab-content">
+
+        <!-- Logo — top-right of sheet -->
+        <img src="LOGOfinaltr.svg" alt="" class="sheet-logo" id="logo-img" aria-hidden="true">
+
+        <div class="home-header">
+          <h1 class="name-hero">Élise Trécul</h1>
+          <p class="home-subtitle">Content &amp; Brand Strategist · B2B SaaS · Marseille</p>
+        </div>
+
+        <span class="section-label" style="display:block; margin-bottom:1rem;">Positioning</span>
+
+        <p class="positioning-statement">
+          Most content exists for the brand, not the person receiving it. I've spent a decade fixing that — building content and brand systems for B2B SaaS companies that speak with a real personality, scale across markets, and make technically complex subjects genuinely compelling.
+        </p>
+
+        <blockquote class="pull-quote">
+          I'm the person teams come to when things need to move: conceiving creative direction, writing the copy, aligning the designers, and shipping work that once made Amazon pick up the phone.
+        </blockquote>
+
+        <!-- Proof row -->
+        <div class="proof-row">
+          <div>
+            <span class="stat-num">+500%</span>
+            <span class="stat-label">organic growth<br>at Red Points</span>
+          </div>
+          <div>
+            <span class="stat-num">8M+</span>
+            <span class="stat-label">users reached<br>at Domestika</span>
+          </div>
+          <div>
+            <span class="stat-num">8</span>
+            <span class="stat-label">languages shipped<br>across campaigns</span>
+          </div>
+        </div>
+
+        <hr class="home-divider">
+
+        <blockquote class="peer-quote">
+          "A pro writer with a strategic mind and a branding heart."
+          <cite>— Alejandro Encinas, her manager at Domestika</cite>
+        </blockquote>
+
+        <span class="section-label" style="display:block; margin-bottom:1.25rem;">What I do</span>
+
+        <p class="discipline-nav">
+          I work across
+          <span class="discipline-word" data-disc="content-strategy" data-disc-target="content-strategy">content strategy<span class="disc-micro">the architecture before the words</span></span>,
+          <span class="discipline-word" data-disc="creative-direction" data-disc-target="creative-direction">creative direction<span class="disc-micro">turning briefs into working creativity</span></span>,
+          <span class="discipline-word" data-disc="brand-messaging" data-disc-target="brand-messaging">brand messaging<span class="disc-micro">giving brands a personality worth remembering</span></span>,
+          <span class="discipline-word" data-disc="copywriting" data-disc-target="copywriting">copywriting<span class="disc-micro">every line earns its place</span></span>,
+          and <span class="discipline-word" data-disc="video" data-disc-target="video">video<span class="disc-micro">when the idea needs to move</span></span>.
+        </p>
+
+        <hr class="home-divider" style="margin-top:2.5rem;">
+
+        <span class="section-label" style="display:block; margin-bottom:1rem;">Where I've worked</span>
+        <div class="company-strip">
+          <span>Red Points</span>
+          <span class="dot"></span>
+          <span>Domestika</span>
+          <span class="dot"></span>
+          <span>Camping</span>
+          <span class="dot"></span>
+          <span>Usercentrics</span>
+        </div>
+
+        <hr class="home-divider">
+      </div>
+
+      <!-- WORK TAB ───────────────────────────────────────────────── -->
+      <div id="tab-work" class="tab-content" style="display:none;">
+        <span class="section-label" style="display:block; margin-bottom:1.5rem;">Selected Work</span>
+
+        <!-- Card 1: Red Points -->
+        <div class="work-card" tabindex="0" data-expandable>
+          <div class="card-category">B2B SaaS · SEO Content Strategy · 2019–2020</div>
+          <div class="card-title">Red Points</div>
+          <div class="card-meta">Brand protection platform · SEO content strategy</div>
+          <div class="card-stats">
+            <div class="stat-item">
+              <span class="stat-num">+500%</span>
+              <span class="stat-label">YoY organic growth</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">~40</span>
+              <span class="stat-label">articles published</span>
+            </div>
+          </div>
+          <span class="card-note">"articles still ranking today"</span>
+          <a href="#" class="card-link" data-expand>Read case study →</a>
+          <div class="case-body">
+            <p>Built an SEO content programme from scratch for Red Points, a B2B SaaS brand protection platform targeting IP managers and legal teams. Starting with keyword research via Screaming Frog and SEMrush, I identified high-intent topics across trademark enforcement, brand protection, and IP law.</p>
+            <p>Produced ~40 long-form articles — written to rank and written to be read. The work contributed to 500% YoY organic traffic growth. One article on Amazon's fake review problem gained enough traction that Amazon's Head of Brand called Red Points directly to request it be taken down.</p>
+            <p>Articles remain indexed and ranking today.</p>
+            <button class="case-close" data-collapse>Close ↑</button>
+          </div>
+        </div>
+
+        <!-- Card 2: Domestika Black Friday -->
+        <div class="work-card" tabindex="0" data-expandable>
+          <div class="card-category">B2B/B2C · Creative Direction · Campaign · 2022</div>
+          <div class="card-title">Domestika — Black Friday</div>
+          <div class="card-meta">Global campaign · 8 languages · 6 channels</div>
+          <span class="card-note">YouTube · Meta · TikTok · Google · CRM · Affiliate</span>
+          <div class="video-thumbs">
+            <div class="video-thumb" data-video="domestika_bf" tabindex="0" role="button" aria-label="Play Black Friday spot">
+              <svg class="video-play-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="0.75" opacity="0.4"/><path d="M5.5 4.5l5 2.5-5 2.5V4.5z" fill="var(--rose)"/></svg>
+              Black Friday spot
+            </div>
+            <div class="video-thumb" data-video="domestika_brand" tabindex="0" role="button" aria-label="Play Cyber Monday spot">
+              <svg class="video-play-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="0.75" opacity="0.4"/><path d="M5.5 4.5l5 2.5-5 2.5V4.5z" fill="var(--rose)"/></svg>
+              Cyber Monday spot
+            </div>
+          </div>
+          <a href="#" class="card-link" data-expand>Read case study →</a>
+          <div class="case-body">
+            <p>Originated "Be bold, be colorful" as the creative direction for Domestika's 2022 global Black Friday campaign. Concept, visual narrative, and verbal identity — taken from brief to live across YouTube, Meta, TikTok, Google Display, CRM, and Affiliate, simultaneously, in 8 languages.</p>
+            <p>Wrote the campaign copy, directed the visual approach, and coordinated execution with design and video teams. Cyber Monday extended the same creative system through the following weekend.</p>
+            <button class="case-close" data-collapse>Close ↑</button>
+          </div>
+        </div>
+
+        <!-- Card 3: Usercentrics -->
+        <div class="work-card" tabindex="0" data-expandable>
+          <div class="card-category">B2B SaaS · Instructional Content · Freelance via Camping · 2024</div>
+          <div class="card-title">Usercentrics</div>
+          <div class="card-meta">Consent management platform · Course content &amp; editorial</div>
+          <span class="card-note">3 courses live · marketing measurement · GDPR · server-side tagging</span>
+          <a href="#" class="card-link" data-expand>Read case study →</a>
+          <div class="case-body">
+            <p>Engagement led by my former senior lead at Domestika — a second chapter of working together, this time on content built around clarity and intrigue for B2B SaaS company Usercentrics, via Camping agency in Barcelona.</p>
+            <p>Developed and wrote three privacy-led education courses for the Usercentrics Academy, working across course architecture, scripts, and surrounding editorial. The programme covers marketing measurement, Google Consent Mode, and server-side tagging — translating dense, technical, regulation-driven material into accessible content for digital marketers post-GDPR.</p>
+            <p>Trusted by 3,000+ marketers worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="case-live-link">View the Marketing Measurement course →</a></p>
+            <button class="case-close" data-collapse>Close ↑</button>
+          </div>
+        </div>
+
+        <!-- Card 4: Domestika Brand & PR -->
+        <div class="work-card" tabindex="0" data-expandable>
+          <div class="card-category">Brand · PR · UX Writing · 2020–2023</div>
+          <div class="card-title">Domestika — Brand &amp; PR</div>
+          <div class="card-meta">Employer branding · Press kit · Brand guide · UX writing</div>
+          <span class="card-note">$110M Series B · LinkedIn Life page · 8M users</span>
+          <div class="video-thumbs">
+            <div class="video-thumb" data-video="domestika_course_trailer" tabindex="0" role="button" aria-label="Play Domestika Plus walkthrough">
+              <svg class="video-play-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="0.75" opacity="0.4"/><path d="M5.5 4.5l5 2.5-5 2.5V4.5z" fill="var(--rose)"/></svg>
+              Domestika Plus walkthrough
+            </div>
+            <div class="video-thumb" data-video="domestika_mini_trailer" tabindex="0" role="button" aria-label="Play Sarah Van Dongen course trailer">
+              <svg class="video-play-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="0.75" opacity="0.4"/><path d="M5.5 4.5l5 2.5-5 2.5V4.5z" fill="var(--rose)"/></svg>
+              Course trailer (Sarah Van Dongen)
+            </div>
+          </div>
+          <a href="#" class="card-link" data-expand>Read case study →</a>
+          <div class="case-body">
+            <p>Contributed to formalising Domestika's brand voice during a period of rapid scale (8M+ users, 12 countries). Worked across the brand guide, buyer personas, messaging architecture, employer branding (LinkedIn Life), Domestika Plus product copy, and the $110M Series B press kit narrative.</p>
+            <p>Wrote and directed product walkthroughs and creator course trailers — moving fluently between marketing campaigns, product messaging, and editorial.</p>
+            <button class="case-close" data-collapse>Close ↑</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CV TAB ─────────────────────────────────────────────────── -->
+      <div id="tab-cv" class="tab-content" style="display:none;">
+
+        <div class="cv-header">
+          <div class="cv-header-left">
+            <h1>Élise Trécul</h1>
+            <p>Content &amp; Brand Strategist · B2B SaaS</p>
+          </div>
+          <button class="pdf-btn interactive" id="pdf-btn" aria-label="Download CV as PDF">↓ PDF</button>
+        </div>
+
+        <!-- Experience -->
+        <div class="cv-section">
+          <span class="section-label">Experience</span>
+
+          <div class="cv-job">
+            <div class="cv-job-header">
+              <span class="cv-job-company">Freelance</span>
+              <span class="cv-job-dates">2023–Present</span>
+            </div>
+            <div class="cv-job-role">Content Strategy &amp; Brand</div>
+            <p>Content strategy and brand projects for B2B SaaS clients, including Usercentrics (consent management, data privacy) via Camping agency in Barcelona. Engagement led by my former senior lead at Domestika — a second chapter of working together, this time on content built around clarity and intrigue for B2B SaaS company Usercentrics. Three courses live on the Usercentrics Academy, trusted by 3,000+ marketers worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="cv-live-link">View live →</a></p>
+          </div>
+
+          <div class="cv-job">
+            <div class="cv-job-header">
+              <span class="cv-job-company">Domestika</span>
+              <span class="cv-job-dates">2020–2023</span>
+            </div>
+            <div class="cv-job-role">Senior Copywriter &amp; Campaigns Lead</div>
+            <p>Led creative direction and campaigns reaching 8M+ users across 12 countries. Conceived global Black Friday concept (6 channels, 8 languages). Contributed to brand guide, messaging architecture, and $110M Series B communications.</p>
+          </div>
+
+          <div class="cv-job">
+            <div class="cv-job-header">
+              <span class="cv-job-company">Red Points</span>
+              <span class="cv-job-dates">2019–2020</span>
+            </div>
+            <div class="cv-job-role">Marketing Copywriter</div>
+            <p>Built SEO content programme contributing to +500% YoY organic traffic growth. Produced ~40 articles — one on Amazon's fake reviews gained enough traction that Amazon's Head of Brand called to request it be taken down.</p>
+          </div>
+
+          <div class="cv-job">
+            <div class="cv-job-header">
+              <span class="cv-job-company">Termix</span>
+              <span class="cv-job-dates">2018–2019</span>
+            </div>
+            <div class="cv-job-role">Communication &amp; Content</div>
+            <p>Brand content and digital campaigns for the French market.</p>
+          </div>
+        </div>
+
+        <!-- Skills & Character -->
+        <div class="cv-section skills-section">
+          <span class="section-label">Skills &amp; Character</span>
+          <div class="skills-grid">
+            <div>
+              <div class="skills-column-label">What I bring</div>
+              <ul class="skills-list">
+                <li>Content strategy</li>
+                <li>Brand messaging &amp; voice</li>
+                <li>Creative direction</li>
+                <li>Campaign concepting</li>
+                <li>Editorial + UX copywriting</li>
+                <li>Video + script direction</li>
+                <li>SEO (SEMrush, Screaming Frog)</li>
+                <li>AI-assisted content workflows</li>
+              </ul>
+            </div>
+            <div>
+              <div class="skills-column-label">How I bring it</div>
+              <ul class="skills-list">
+                <li>Grounded</li>
+                <li>Cross-functional</li>
+                <li>Multilingual by nature</li>
+                <li>Systems thinker</li>
+                <li>Senior without ego</li>
+                <li>Data-curious</li>
+                <li>Calm under pressure</li>
+                <li>Known for shipping</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-section">
+          <span class="section-label">Education &amp; Certifications</span>
+          <div class="cv-edu-item">Section4 · Brand Strategy <em style="color:var(--ink-faint)">(certified)</em></div>
+          <div class="cv-edu-item">Section4 · Storytelling <em style="color:var(--ink-faint)">(certified)</em></div>
+          <div class="cv-edu-item" style="margin-top:0.5rem;">BA International Business with Languages · Dublin City University · 2006–2009</div>
+          <div class="cv-edu-item">Diploma Advertising &amp; Graphic Design · Instituto Juan Gutenberg · 2011–2014</div>
+        </div>
+
+        <!-- Languages -->
+        <div class="cv-section">
+          <span class="section-label">Languages</span>
+          <div class="cv-lang-item" style="font-style:italic;">English (native) · French (native) · Spanish (fluent)</div>
+        </div>
+
+        <!-- Tools -->
+        <div class="cv-section">
+          <span class="section-label">AI &amp; Tools</span>
+          <div class="cv-tools-item" style="font-style:italic;">Claude · ChatGPT · Perplexity · SEMrush · Screaming Frog · Figma</div>
+        </div>
+
+        <span class="cv-updated">Last written, April 2026</span>
+        <span class="cv-print-stamp" style="display:none;">CV · April 2026</span>
+      </div>
+
+      <!-- ABOUT TAB ──────────────────────────────────────────────── -->
+      <div id="tab-about" class="tab-content" style="display:none;">
+        <span class="section-label" style="display:block; margin-bottom:1.5rem;">About</span>
+
+        <div class="about-body">
+          <p>A decade of work across three languages, four companies, and a lot of paper.</p>
+
+          <p>I've spent that decade making complex things clear — IP law, data privacy, brand protection, creative education — for audiences who need to understand them quickly and act on them confidently.</p>
+
+          <p>I'm trilingual (English, French, Spanish), I've worked across Barcelona, Mendoza, and Marseille, and I've led content for campaigns that ran in eight languages across six channels simultaneously.</p>
+
+          <p>Three years ago I was an early casualty of AI displacement in content. It was a turning point. I spent time understanding what that shift meant before re-entering — I wanted to come back on the strategy side, not just survive the change. Now I work at the intersection of editorial instinct, strategic thinking, and AI-augmented production.</p>
+
+          <p>I know what good looks like. And I know how to build the systems that produce it consistently.</p>
+        </div>
+
+        <hr class="about-divider">
+
+        <p class="about-location">Marseille, France · open to remote</p>
+
+        <div class="cert-badges">
+          <span class="cert-badge">Brand Strategy</span>
+          <span class="cert-badge">Storytelling</span>
+        </div>
+
+        <hr class="about-divider">
+
+        <div class="about-contact">
+          <p class="about-contact-line">Drop me a line.</p>
+          <p class="about-contact-details">
+            treculelise@gmail.com<br>
+            linkedin.com/in/elise-trecul<br>
+            <span style="color: var(--ink-faint); font-style: italic;">Based in Marseille · open to remote across EU and Ireland</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- NOTES TAB ──────────────────────────────────────────────── -->
+      <div id="tab-notes" class="tab-content" style="display:none;">
+        <span class="section-label" style="display:block; margin-bottom:1.5rem;">Notes</span>
+
+        <p class="kind-words-intro">Notes from people I've worked with.</p>
+
+        <div class="kind-quote">
+          <blockquote>"Three years later, she became an essential person in the team and the company. I witnessed her evolution as a professional — becoming the pro writer (that she already was) but with a strategic mind and a branding heart. She is more than a copywriter and is capable of defining 360° campaigns. I'm impressed by her leadership skills and her motivation to do great things."</blockquote>
+          <p class="attribution"><strong>Alejandro Encinas</strong> — Content Designer, Domestika · managed Élise directly for 3 years</p>
+        </div>
+
+        <div class="kind-quote">
+          <blockquote>"Her data-driven approach and strategic thinking were invaluable assets to the team, and her ability to balance sticking to a brief while also pushing for something more elevated our work to new heights. If you're looking for a talented copywriter/brand strategist who's also capable of lighting up a room, look no further."</blockquote>
+          <p class="attribution"><strong>Cati Gayà Valdueza</strong> — Lead Creative Copywriter, Domestika · peer</p>
+        </div>
+
+        <div class="kind-quote">
+          <blockquote>"Elise was invaluable in getting me up to speed with the brand voice so that I could produce content in keeping with its style. It was a pleasure to work with her and would love the chance to do so again."</blockquote>
+          <p class="attribution"><strong>Arran Wallace</strong> — Marketing Manager, Giesecke+Devrient · reported to Élise at Domestika</p>
+        </div>
+
+        <div class="kind-quote">
+          <blockquote>"Elise has taught me so much during our time together at Domestika. Not only is she talented when it comes to ideation, content creation, and branding, she's also an incredibly patient and understanding person who makes collaboration easy. A true asset to any team."</blockquote>
+          <p class="attribution"><strong>Mackenzie Orrock</strong> — Communications and Engagement Executive, Domestika · colleague</p>
+        </div>
+
+        <a class="kind-words-footer-link" href="https://www.linkedin.com/in/elise-trecul/details/recommendations/" target="_blank" rel="noopener">See all 11 on LinkedIn →</a>
+      </div>
+
+      <!-- ─── DISCIPLINE SHEETS ──────────────────────────────────── -->
+
+      <!-- Content Strategy -->
+      <div class="disc-sheet" id="disc-content-strategy" aria-label="Content strategy sheet">
+        <button class="disc-back-nav interactive" data-back="content-strategy">← back</button>
+        <span class="section-label disc-name">Content Strategy</span>
+        <span class="disc-tagline">the architecture before the words</span>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Red Points</div>
+          <p>Built an SEO content programme from scratch for a B2B SaaS brand protection platform. Identified keyword opportunities using Screaming Frog and SEMrush, produced ~40 long-form articles targeting IP managers and legal teams. Result: 500% YoY organic traffic growth. Articles remain indexed and ranking.</p>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Usercentrics</div>
+          <p>Content strategy and editorial for the Usercentrics Academy, a B2B SaaS consent management platform. Developed and wrote three privacy-led education courses — marketing measurement, Google Consent Mode, and server-side tagging — translating dense, regulation-driven material into accessible content for digital marketers. Trusted by 3,000+ marketers worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="pencil-link">View live →</a></p>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika Plus</div>
+          <p>Product messaging strategy for Domestika's subscription tier — positioning, messaging architecture, and copy for an 8M+ user platform expanding into premium education.</p>
+        </div>
+
+        <div class="disc-also-filed">
+          also filed under:
+          <a href="#" data-disc-target="brand-messaging" class="pencil-link">brand messaging</a> ·
+          <a href="#" data-disc-target="copywriting" class="pencil-link">copywriting</a>
+        </div>
+      </div>
+
+      <!-- Creative Direction -->
+      <div class="disc-sheet" id="disc-creative-direction" aria-label="Creative direction sheet">
+        <button class="disc-back-nav interactive" data-back="creative-direction">← back</button>
+        <span class="section-label disc-name">Creative Direction</span>
+        <span class="disc-tagline">turning briefs into working creativity</span>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika — Black Friday</div>
+          <p>Originated "Be bold, be colorful" as the creative direction for Domestika's 2022 Black Friday global campaign. Concept to execution across YouTube, Meta, TikTok, Google, CRM, and Affiliate — 8 languages, 6 channels simultaneously. Led the campaign from brief to live.</p>
+          <div class="video-thumbs" style="margin-top:0.75rem;">
+            <div class="video-thumb interactive" data-video="domestika_bf" tabindex="0" role="button">
+              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
+                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
+              </svg>
+              Black Friday spot
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika — September campaign</div>
+          <p>Concepted "Fill your routine with creativity" — seasonal campaign positioning Domestika as an everyday creative habit, not a one-off purchase.</p>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika — Cyber Monday</div>
+          <p>Campaign extension sustaining the Black Friday creative system through Cyber Monday. Same visual world, same verbal identity — proving the concept scaled beyond a single activation.</p>
+          <div class="video-thumbs" style="margin-top:0.75rem;">
+            <div class="video-thumb interactive" data-video="domestika_brand" tabindex="0" role="button">
+              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
+                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
+              </svg>
+              Cyber Monday spot
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-also-filed">
+          also filed under:
+          <a href="#" data-disc-target="copywriting" class="pencil-link">copywriting</a> ·
+          <a href="#" data-disc-target="video" class="pencil-link">video</a>
+        </div>
+      </div>
+
+      <!-- Brand Messaging -->
+      <div class="disc-sheet" id="disc-brand-messaging" aria-label="Brand messaging sheet">
+        <button class="disc-back-nav interactive" data-back="brand-messaging">← back</button>
+        <span class="section-label disc-name">Brand Messaging</span>
+        <span class="disc-tagline">giving brands a personality worth remembering</span>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika brand guide</div>
+          <p>Contributed to the foundational brand guide that defined Domestika's tone of voice, buyer personas, and messaging architecture as the platform scaled to 8M+ users.</p>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika Plus — do's and don'ts</div>
+          <p>Messaging guardrails and copy framework for Domestika's subscription tier — ensuring the product's premium positioning stayed coherent across all touchpoints.</p>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Usercentrics course content</div>
+          <p>Brand messaging and tone framework for Usercentrics' educational content — translating technical data privacy concepts into language that converts and retains.</p>
+        </div>
+
+        <div class="disc-also-filed">
+          also filed under:
+          <a href="#" data-disc-target="content-strategy" class="pencil-link">content strategy</a> ·
+          <a href="#" data-disc-target="copywriting" class="pencil-link">copywriting</a>
+        </div>
+      </div>
+
+      <!-- Copywriting -->
+      <div class="disc-sheet" id="disc-copywriting" aria-label="Copywriting sheet">
+        <button class="disc-back-nav interactive" data-back="copywriting">← back</button>
+        <span class="section-label disc-name">Copywriting</span>
+        <span class="disc-tagline">every line earns its place</span>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Red Points — SEO articles</div>
+          <p>~40 long-form articles targeting IP managers and legal teams. Written to rank, written to be read. Articles on brand protection, IP law, and trademark enforcement that remain indexed and ranking today. Available on request.</p>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika — UX &amp; About pages</div>
+          <p>Product copy for Domestika Plus and UX writing across key user journeys. Also contributed the About page copy that represented Domestika to 8M+ users and press.</p>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Strategic range — interview tasks</div>
+          <p>Copywriting and content strategy tasks completed for Passion.io and DeepL — demonstrating range across B2C subscription and B2B language technology. Available on request.</p>
+        </div>
+
+        <div class="disc-also-filed">
+          also filed under:
+          <a href="#" data-disc-target="content-strategy" class="pencil-link">content strategy</a> ·
+          <a href="#" data-disc-target="brand-messaging" class="pencil-link">brand messaging</a>
+        </div>
+      </div>
+
+      <!-- Video -->
+      <div class="disc-sheet" id="disc-video" aria-label="Video sheet">
+        <button class="disc-back-nav interactive" data-back="video">← back</button>
+        <span class="section-label disc-name">Video</span>
+        <span class="disc-tagline">when the idea needs to move</span>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika — Black Friday film</div>
+          <p>Global campaign film — the centrepiece of the 2022 Black Friday push. Creative direction, script, and concept. Ran across YouTube and Meta in 8 languages.</p>
+          <div class="video-thumbs" style="margin-top:0.75rem;">
+            <div class="video-thumb interactive" data-video="domestika_bf" tabindex="0" role="button">
+              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
+                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
+              </svg>
+              Black Friday spot
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Domestika — Cyber Monday</div>
+          <p>Cyber Monday campaign spot extending the Black Friday "Be bold, be colorful" creative system — same visual world, sustained through the post-BF window.</p>
+          <div class="video-thumbs" style="margin-top:0.75rem;">
+            <div class="video-thumb interactive" data-video="domestika_brand" tabindex="0" role="button">
+              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
+                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
+              </svg>
+              Cyber Monday spot
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Mini trailers — Domestika</div>
+          <p>Short-form editorial trailers introducing Domestika creators and their courses. Each one written to the artist's voice — different creative worlds, same editorial precision.</p>
+          <div class="video-thumbs" style="margin-top:0.5rem;">
+            <div class="video-thumb interactive" data-video="domestika_mattias" tabindex="0" role="button">
+              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
+                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
+              </svg>
+              Mattias Adolfsson
+            </div>
+            <div class="video-thumb interactive" data-video="domestika_mini_trailer" tabindex="0" role="button">
+              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
+                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
+              </svg>
+              Sarah Van Dongen
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-item">
+          <div class="disc-item-title">Usercentrics Academy — course videos</div>
+          <p>Wrote and directed video scripts for three privacy-led education courses on the Usercentrics Academy — covering marketing measurement, Google Consent Mode, and server-side tagging. Each course delivered as on-demand, bite-sized video modules. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="pencil-link">View live →</a></p>
+        </div>
+
+        <div class="disc-also-filed">
+          also filed under:
+          <a href="#" data-disc-target="creative-direction" class="pencil-link">creative direction</a> ·
+          <a href="#" data-disc-target="content-strategy" class="pencil-link">content strategy</a>
+        </div>
+      </div>
+
+      <!-- Tagline -->
+      <div class="tagline-wrap" aria-hidden="true">
+        <span class="tagline-text" id="tagline"></span>
+      </div>
+
+      <!-- Persistent contact (visible on every tab) -->
+      <div class="persistent-contact">
+        <a href="mailto:treculelise@gmail.com">treculelise@gmail.com</a> · <a href="https://linkedin.com/in/elise-trecul" target="_blank" rel="noopener">linkedin.com/in/elise-trecul</a>
+      </div>
+
+    </div><!-- /.sheet -->
+  </div><!-- /.folder-body -->
+</div><!-- /.folder-wrap -->
+
+<!-- ─── JAVASCRIPT ──────────────────────────────────────────────────── -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── State ── */
+  const visitedTabs = new Set(['home']);
+  const visitedDiscs = new Set();
+  let currentTab = 'home';
+  let activeDisc = null;
+  let transitioning = false;
+
+  /* ── Video slot URLs ── */
+  const videoSlots = {
+    domestika_bf:             'https://www.youtube.com/embed/tS6Ons90EmM',
+    domestika_brand:          'https://www.youtube.com/embed/ubL_0GIF63w',
+    domestika_mini_trailer:   'https://www.youtube.com/embed/3Z936wtVSFk',
+    domestika_mattias:        'https://www.youtube.com/embed/EuMXslgXiM4',
+    domestika_course_trailer: 'https://www.youtube.com/embed/hLD_nfhTyik',
+    usercentrics_intro:       null  // [PENDING]
+  };
+
+  /* ── Tagline ── */
+  const TAGLINE = 'every idea starts on paper.';
+  const taglineEl = document.getElementById('tagline');
+
+  function animateTagline() {
+    taglineEl.innerHTML = '';
+    const chars = TAGLINE.split('');
+    chars.forEach((ch, i) => {
+      const span = document.createElement('span');
+      span.className = 'char';
+      if (ch === '.') span.classList.add('fullstop');
+      span.textContent = ch;
+      span.style.visibility = 'hidden';
+      taglineEl.appendChild(span);
+    });
+
+    const charEls = taglineEl.querySelectorAll('.char');
+    charEls.forEach((el, i) => {
+      setTimeout(() => {
+        el.style.visibility = 'visible';
+        if (el.classList.contains('fullstop')) {
+          setTimeout(() => el.classList.add('glow'), 80);
+        }
+      }, i * 40);
+    });
+  }
+
+  /* ── Tab switching ── */
+  function switchTab(tabName) {
+    if (tabName === currentTab || transitioning) return;
+    transitioning = true;
+
+    // Close any open disc sheet first
+    if (activeDisc) closeDiscSheet(null, false);
+
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const sheet = document.getElementById('active-sheet');
+    const oldContent = document.getElementById('tab-' + currentTab);
+    const newContent = document.getElementById('tab-' + tabName);
+
+    if (!newContent) { transitioning = false; return; }
+
+    // Variance for shuffle feel
+    const rotVar = (Math.random() * 1 - 0.5).toFixed(2);
+    const transVar = (Math.random() * 4 - 2).toFixed(0);
+    const dur = Math.floor(Math.random() * 40 + 180);
+
+    // Exit
+    sheet.style.transition = `opacity ${dur}ms ease, transform ${dur}ms ease`;
+    sheet.style.opacity = '0';
+    sheet.style.transform = `translateX(${18 + Number(transVar)}px) rotate(${rotVar}deg)`;
+
+    setTimeout(() => {
+      if (oldContent) oldContent.style.display = 'none';
+      newContent.style.display = 'block';
+
+      // Update tabs UI
+      tabBtns.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+        if (btn.dataset.tab === tabName) {
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+        }
+      });
+
+      visitedTabs.add(tabName);
+      currentTab = tabName;
+
+      // Enter
+      const enterRot = (Math.random() * 1 - 0.5).toFixed(2);
+      sheet.style.transition = 'none';
+      sheet.style.transform = `translateX(-14px) rotate(${enterRot}deg)`;
+      sheet.style.opacity = '0';
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          sheet.style.transition = `opacity ${dur}ms ease, transform ${dur}ms ease`;
+          sheet.style.opacity = '1';
+          sheet.style.transform = 'translateX(0) translateY(-1px) rotate(0deg)';
+
+          setTimeout(() => {
+            sheet.style.transform = 'translateX(0) translateY(0) rotate(0deg)';
+            transitioning = false;
+            animateTagline();
+          }, dur + 80);
+        });
+      });
+    }, dur);
+  }
+
+  /* ── Tab button clicks ── */
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      visitedTabs.add(tab);
+      switchTab(tab);
+      // Mark visited style (only for non-active states)
+      btn.classList.add('visited');
+    });
+  });
+
+  /* ── Discipline sheets ── */
+  function openDiscSheet(discId) {
+    if (activeDisc === discId) return;
+
+    const discEl = document.getElementById('disc-' + discId);
+    if (!discEl) return;
+
+    if (activeDisc) {
+      const prev = document.getElementById('disc-' + activeDisc);
+      if (prev) prev.classList.remove('open', 'entering');
+    }
+
+    activeDisc = discId;
+    discEl.classList.add('open');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        discEl.classList.add('entering');
+      });
+    });
+
+    animateTagline();
+  }
+
+  function closeDiscSheet(discId, doAnimate) {
+    const id = discId || activeDisc;
+    if (!id) return;
+
+    const discEl = document.getElementById('disc-' + id);
+    if (discEl) {
+      discEl.classList.remove('open', 'entering');
+    }
+
+    if (discId) visitedDiscs.add(discId);
+    activeDisc = null;
+  }
+
+  /* ── Discipline link clicks ── */
+  document.addEventListener('click', (e) => {
+    // Inline card expand
+    const expandBtn = e.target.closest('[data-expand]');
+    if (expandBtn) {
+      e.preventDefault();
+      const card = expandBtn.closest('.work-card');
+      if (card) card.classList.toggle('expanded');
+      return;
+    }
+
+    // Inline card collapse
+    const collapseBtn = e.target.closest('[data-collapse]');
+    if (collapseBtn) {
+      e.preventDefault();
+      const card = collapseBtn.closest('.work-card');
+      if (card) card.classList.remove('expanded');
+      return;
+    }
+
+    const discTarget = e.target.closest('[data-disc-target]');
+    if (discTarget) {
+      e.preventDefault();
+      const disc = discTarget.dataset.discTarget;
+
+      // Mark the discipline word as visited
+      const discWord = document.querySelector(`.discipline-word[data-disc="${disc}"]`);
+      if (discWord) discWord.classList.add('visited');
+
+      // Flicker the tagline full stop — a small light reward
+      const fullstop = document.querySelector('.tagline-text .fullstop');
+      if (fullstop) {
+        fullstop.classList.add('flicker');
+        setTimeout(() => fullstop.classList.remove('flicker'), 400);
+      }
+
+      visitedDiscs.add(disc);
+
+      const wasOnHome = currentTab === 'home';
+      if (!wasOnHome) switchTab('home');
+      setTimeout(() => openDiscSheet(disc), wasOnHome ? 0 : 500);
+      return;
+    }
+
+    // Back nav
+    const backBtn = e.target.closest('[data-back]');
+    if (backBtn) {
+      e.preventDefault();
+      const disc = backBtn.dataset.back;
+
+      // Mark the discipline word visited (rose state)
+      const discWord = document.querySelector(`.discipline-word[data-disc="${disc}"]`);
+      if (discWord) discWord.classList.add('visited');
+
+      closeDiscSheet(disc, true);
+      animateTagline();
+      return;
+    }
+  });
+
+  /* ── Video overlay ── */
+  function openVideo(videoId) {
+    const overlay = document.getElementById('video-overlay');
+    const container = document.getElementById('video-container');
+    const placeholder = document.getElementById('video-placeholder');
+    const url = videoSlots[videoId];
+
+    container.innerHTML = '';
+
+    if (url) {
+      if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const iframe = document.createElement('iframe');
+        iframe.src = url + '?autoplay=1';
+        iframe.allowFullscreen = true;
+        iframe.allow = 'autoplay; fullscreen';
+        container.appendChild(iframe);
+      } else {
+        const video = document.createElement('video');
+        video.src = url;
+        video.controls = true;
+        video.autoplay = true;
+        container.appendChild(video);
+      }
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'video-placeholder';
+      ph.innerHTML = '<span>Video coming soon</span><span style="font-size:11px;opacity:0.7;">[PENDING]</span>';
+      container.appendChild(ph);
+    }
+
+    overlay.style.display = 'flex';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        overlay.classList.add('open');
+      });
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideo() {
+    const overlay = document.getElementById('video-overlay');
+    overlay.classList.add('closing');
+    setTimeout(() => {
+      overlay.classList.remove('open', 'closing');
+      overlay.style.display = 'none';
+      document.getElementById('video-container').innerHTML = '';
+      document.body.style.overflow = '';
+    }, 250);
+  }
+
+  document.addEventListener('click', (e) => {
+    const thumb = e.target.closest('[data-video]');
+    if (thumb) {
+      e.preventDefault();
+      openVideo(thumb.dataset.video);
+      return;
+    }
+  });
+
+  document.getElementById('video-close-btn').addEventListener('click', closeVideo);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (document.getElementById('video-overlay').classList.contains('open')) {
+        closeVideo();
+      }
+    }
+  });
+
+  /* ── Keyboard shortcuts for tabs ── */
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (document.getElementById('video-overlay').classList.contains('open')) return;
+    if (e.metaKey || e.ctrlKey) return;
+
+    switch (e.key.toLowerCase()) {
+      case 'h': switchTab('home'); break;
+      case 'w': switchTab('work'); break;
+      case 'c': switchTab('cv'); break;
+      case 'n': switchTab('notes'); break;
+      case 'a': switchTab('about'); break;
+    }
+  });
+
+  /* ── Keyboard shortcut tooltip ── */
+  const kbTooltip = document.getElementById('kb-tooltip');
+  const kbSeen = localStorage.getItem('et_kb_seen');
+  if (!kbSeen) {
+    setTimeout(() => {
+      kbTooltip.classList.add('hidden');
+      localStorage.setItem('et_kb_seen', '1');
+    }, 4000);
+  } else {
+    kbTooltip.style.display = 'none';
+  }
+
+  /* ── PDF export ── */
+  document.getElementById('pdf-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    triggerPrint();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'p') {
+      if (currentTab === 'cv') {
+        e.preventDefault();
+        triggerPrint();
+      }
+    }
+  });
+
+  function triggerPrint() {
+    const tabs = document.querySelector('.tabs');
+    const paperclip = document.querySelector('.paperclip');
+    const folderBody = document.querySelector('.folder-body');
+
+    // Pre-print animation
+    tabs.style.transition = 'opacity 200ms ease';
+    tabs.style.opacity = '0';
+    paperclip.style.transition = 'opacity 200ms ease, transform 300ms ease';
+    paperclip.style.opacity = '0';
+    paperclip.style.transform = 'translateY(-30px)';
+    folderBody.style.transition = 'border-color 200ms ease';
+    folderBody.style.borderColor = 'transparent';
+
+    setTimeout(() => {
+      window.print();
+
+      // Restore after print
+      setTimeout(() => {
+        tabs.style.opacity = '1';
+        paperclip.style.opacity = '1';
+        paperclip.style.transform = '';
+        folderBody.style.borderColor = '';
+      }, 300);
+    }, 350);
+  }
+
+  /* ── Logo pulse (once on load) ── */
+  // The animation is defined in CSS and plays once via animation-fill-mode forwards.
+  // After it completes, remove the class so it won't replay on style recalculation.
+  const logoImg = document.getElementById('logo-img');
+  if (logoImg) {
+    logoImg.addEventListener('load', () => {
+      // Already handled via CSS for inline SVG; img tag just renders static.
+    });
+  }
+
+  /* ── Touch: replace hover on disc words for mobile ── */
+  if ('ontouchstart' in window) {
+    document.querySelectorAll('.discipline-word').forEach(word => {
+      word.addEventListener('touchstart', () => {
+        document.querySelectorAll('.discipline-word .disc-micro').forEach(m => m.style.opacity = '0');
+        const micro = word.querySelector('.disc-micro');
+        if (micro) micro.style.opacity = '1';
+      }, { passive: true });
+    });
+  }
+
+  /* ── Init ── */
+  animateTagline();
+
+})();
+</script>
+
+</body>
+</html>
