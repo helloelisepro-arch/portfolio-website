@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Élise Trécul — Content & Brand Strategist</title>
+<title>Élise Trécul — Content & Brand Strategist | Responsable Contenu & Marque</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -169,28 +169,6 @@ body {
   70%  { transform: translateX(0) rotate(0.2deg); opacity: 1; translateY(-1px); }
   85%  { transform: translateX(0) rotate(-0.1deg); }
   100% { transform: translateX(0) rotate(0deg); opacity: 1; }
-}
-
-/* ─── TAGLINE ───────────────────────────────────────────────────────────── */
-.tagline-wrap {
-  position: absolute;
-  bottom: 2rem;
-  right: 2.5rem;
-  z-index: 1;
-  pointer-events: none;
-}
-.tagline-text {
-  font-family: 'Instrument Serif', serif;
-  font-size: 12px;
-  font-style: italic;
-  color: var(--ink-faint);
-  white-space: nowrap;
-}
-.tagline-text .char { display: inline; }
-.tagline-text .fullstop.glow {
-  filter: drop-shadow(0 0 6px rgba(212,83,126,0.5));
-  color: var(--rose);
-  transition: filter 600ms ease, color 600ms ease;
 }
 
 /* ─── INTERACTIVE ELEMENTS ─────────────────────────────────────────────── */
@@ -365,7 +343,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  row-gap: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 .disc-pill {
   display: inline-flex;
@@ -411,6 +391,9 @@ body {
   pointer-events: none;
   letter-spacing: 0;
   text-transform: none;
+  z-index: 10;
+  background: var(--paper);
+  padding: 2px 0;
 }
 .disc-pill:hover .disc-micro,
 .disc-pill:focus .disc-micro { opacity: 1; }
@@ -1013,15 +996,85 @@ body {
 }
 .persistent-contact a:hover { color: var(--rose); }
 
-/* ─── TAGLINE FLICKER (on discipline click) ─────────────────────────── */
-.tagline-text .fullstop.flicker {
-  animation: flicker 400ms ease-out;
+/* ─── LANGUAGE TOGGLE ───────────────────────────────────────────────── */
+.lang-toggle {
+  position: absolute;
+  top: 5.5rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 20;
 }
-@keyframes flicker {
-  0%   { filter: drop-shadow(0 0 6px rgba(212,83,126,0.6)); }
-  50%  { filter: drop-shadow(0 0 10px rgba(212,83,126,0.95)); }
-  100% { filter: drop-shadow(0 0 6px rgba(212,83,126,0.6)); }
+.lang-btn {
+  font-family: 'Geist', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 200ms ease;
+  line-height: 1;
 }
+.lang-btn.active { color: var(--ink); }
+.lang-btn:hover { color: var(--rose); }
+.lang-sep {
+  font-family: 'Geist', sans-serif;
+  font-size: 10px;
+  color: var(--ink-faint);
+  user-select: none;
+}
+
+/* ─── FRENCH DETECTION BANNER ──────────────────────────────────────── */
+.lang-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--folder);
+  border-bottom: 0.5px solid var(--sheet-border);
+  padding: 10px 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 30;
+  font-family: 'Instrument Serif', sans-serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-mid);
+  transform: translateY(-100%);
+  transition: transform 300ms ease;
+}
+.lang-banner.visible { transform: translateY(0); }
+.lang-banner-action {
+  font-family: 'Geist', sans-serif;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--rose);
+  cursor: pointer;
+  border-bottom: 0.5px solid rgba(212,83,126,0.4);
+  padding-bottom: 1px;
+  margin-left: 1rem;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.lang-banner-dismiss {
+  font-family: 'Geist', sans-serif;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--ink-faint);
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin-left: 0.75rem;
+}
+
 
 /* ─── DISCIPLINE SHEETS ─────────────────────────────────────────────────── */
 .disc-sheet {
@@ -1261,40 +1314,90 @@ body {
 @prefers-reduced-motion: reduce;
 @media (prefers-reduced-motion: reduce) {
   .sheet, .sheet.exiting, .sheet.entering, .sheet.settling,
-  .disc-sheet.entering, .logo-filament, .tagline-text .char,
+  .disc-sheet.entering, .logo-filament,
   #video-overlay { animation: none !important; transition: none !important; }
 }
 
 /* ─── PRINT STYLESHEET ──────────────────────────────────────────────────── */
 @media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
   body {
     background: white;
     padding: 0;
     display: block;
     cursor: default;
+    font-family: 'Geist', sans-serif;
   }
-  .folder-wrap { max-width: 100%; }
-  .tabs, .paperclip, .folder-body, .tagline-wrap, #kb-tooltip, #video-overlay { display: none !important; }
+
+  /* Hide all UI chrome */
+  .tabs,
+  .paperclip,
+  .folder-body > *:not(.sheet),
+  .persistent-contact,
+  #kb-tooltip,
+  #video-overlay,
+  .sheet-logo,
+  .margin-line,
+  .pdf-btn,
+  .disc-back-nav,
+  .home-bridge,
+  .home-bridge-small,
+  .impact-grid,
+  .disc-pills,
+  .peer-quote,
+  .company-strip,
+  .home-divider,
+  .home-header,
+  .positioning-statement,
+  .pull-quote,
+  .cv-print-stamp-hide { display: none !important; }
+
+  /* Show the folder and sheet cleanly */
+  .folder-wrap,
+  .folder-body,
+  .sheet { display: block !important; }
+
+  .folder-wrap { max-width: 100%; box-shadow: none; }
+  .folder-body { background: white; border: none; padding: 0; }
+
   .sheet {
     box-shadow: none;
     border: none;
-    padding: 2.5rem 3.5rem;
+    padding: 2rem 3rem;
     min-height: auto;
+    background: white;
     background-image: none;
+    position: static;
   }
-  .sheet::before { left: 2.5rem; }
-  .pdf-btn { display: none; }
-  .disc-back-nav { display: none; }
-  .cv-updated { display: block; position: static; margin-top: 2rem; }
+
+  /* Show ONLY the CV tab */
+  .tab-content { display: none !important; }
+  #tab-cv { display: block !important; }
+
+  /* Case bodies and expand buttons — hide */
+  .case-body, .case-close, .card-link,
+  .impact-cta, .disc-pills { display: none !important; }
+
+  /* CV-specific print styles */
+  .cv-header { margin-bottom: 1.5rem; }
+  .cv-section { margin-bottom: 1.25rem; }
+  .cv-job { page-break-inside: avoid; }
+
+  /* Print stamp */
   .cv-print-stamp {
     display: block !important;
-    position: fixed;
-    bottom: 1.5rem;
-    right: 2rem;
+    margin-top: 2rem;
     font-family: 'Geist', sans-serif;
     font-size: 9px;
     letter-spacing: 0.1em;
-    color: var(--ink-faint);
+    color: #B8B8BC;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 1.5cm 1.5cm;
+    size: A4;
   }
 }
 </style>
@@ -1320,11 +1423,11 @@ body {
 
   <!-- Tabs -->
   <nav class="tabs" role="tablist" aria-label="Portfolio sections">
-    <button class="tab-btn active" data-tab="home" role="tab" aria-selected="true">Home</button>
-    <button class="tab-btn" data-tab="work" role="tab" aria-selected="false">Work</button>
-    <button class="tab-btn" data-tab="cv" role="tab" aria-selected="false">CV</button>
-    <button class="tab-btn" data-tab="notes" role="tab" aria-selected="false">Notes</button>
-    <button class="tab-btn" data-tab="about" role="tab" aria-selected="false">About</button>
+    <button class="tab-btn active" data-tab="home" role="tab" aria-selected="true" data-i18n="tab-home">Home</button>
+    <button class="tab-btn" data-tab="work" role="tab" aria-selected="false" data-i18n="tab-work">Work</button>
+    <button class="tab-btn" data-tab="cv" role="tab" aria-selected="false" data-i18n="tab-cv">CV</button>
+    <button class="tab-btn" data-tab="notes" role="tab" aria-selected="false" data-i18n="tab-notes">Notes</button>
+    <button class="tab-btn" data-tab="about" role="tab" aria-selected="false" data-i18n="tab-about">About</button>
   </nav>
 
   <!-- Folder body -->
@@ -1339,6 +1442,22 @@ body {
     <!-- Active sheet container -->
     <div class="sheet" id="active-sheet" role="tabpanel">
 
+      <!-- Language banner (French browser detection) -->
+      <div class="lang-banner" id="lang-banner" aria-live="polite">
+        <span>Vous préférez lire en français ?</span>
+        <span>
+          <button class="lang-banner-action" id="banner-yes">Oui, merci →</button>
+          <button class="lang-banner-dismiss" id="banner-no">✕</button>
+        </span>
+      </div>
+
+      <!-- Language toggle -->
+      <div class="lang-toggle" aria-label="Language switcher">
+        <button class="lang-btn active" id="lang-en" aria-pressed="true">EN</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" id="lang-fr" aria-pressed="false">FR</button>
+      </div>
+
       <!-- HOME TAB ──────────────────────────────────────────────── -->
       <div id="tab-home" class="tab-content">
 
@@ -1347,48 +1466,42 @@ body {
         <!-- 1. WHO -->
         <div class="home-header">
           <h1 class="name-hero">Élise Trécul</h1>
-          <p class="home-subtitle">Content &amp; Brand Strategist · B2B SaaS · Marseille</p>
+          <p class="home-subtitle" data-i18n="subtitle">Content &amp; Brand Strategist · B2B SaaS · Marseille</p>
         </div>
 
         <!-- 2. POINT OF VIEW -->
-        <p class="positioning-statement">
-          Most content exists for the brand, not the person receiving it. I've spent 8 years fixing that — building content and brand systems for B2B SaaS companies that speak with a real personality, scale across markets, and make technically complex subjects genuinely compelling.
-        </p>
+        <p class="positioning-statement" data-i18n="positioning">Clarity is harder than it looks. I've made it my mission for the past eight years — building content and brand systems for B2B SaaS companies that speak with a real personality, scale across markets, and make technically complex subjects genuinely compelling.</p>
 
-        <blockquote class="pull-quote">
-          I'm the person teams come to when things need to move: conceiving creative direction, writing the copy, aligning the designers, and shipping work that once made Amazon pick up the phone.
-        </blockquote>
+        <blockquote class="pull-quote" data-i18n="pull-quote">I'm the person teams come to when things need to move: conceiving creative direction, writing the copy, aligning the designers, and shipping work that once made Amazon's Head of Brand pick up the phone.</blockquote>
 
         <!-- 3. PROOF WITH DEPTH -->
-        <p class="home-bridge">Numbers are easy. These ones have a story.</p>
-
         <div class="impact-grid">
 
           <div class="impact-card" tabindex="0" data-tab-target="work" data-work-card="0">
             <span class="impact-num">+500%</span>
-            <span class="impact-label">Organic traffic growth</span>
-            <p class="impact-insight">One content programme. One year. Red Points went from invisible to industry-cited.</p>
-            <span class="impact-cta">How this happened →</span>
+            <span class="impact-label" data-i18n="stat1-label">Organic traffic growth</span>
+            <p class="impact-insight" data-i18n="stat1-insight">One content programme. One year. Red Points became the source people cited on brand protection.</p>
+            <span class="impact-cta" data-i18n="stat1-cta">Read the story →</span>
           </div>
 
           <div class="impact-card" tabindex="0" data-tab-target="work" data-work-card="1">
             <span class="impact-num">8M+</span>
-            <span class="impact-label">Users reached</span>
-            <p class="impact-insight">Campaigns across 12 countries. One creative concept. Domestika's biggest commercial moment.</p>
-            <span class="impact-cta">See the campaign →</span>
+            <span class="impact-label" data-i18n="stat2-label">Users reached</span>
+            <p class="impact-insight" data-i18n="stat2-insight">Campaigns across 12 countries. One creative concept. Domestika's biggest commercial moment.</p>
+            <span class="impact-cta" data-i18n="stat2-cta">See the campaign →</span>
           </div>
 
           <div class="impact-card" tabindex="0" data-tab-target="work" data-work-card="1">
             <span class="impact-num">8</span>
-            <span class="impact-label">Languages shipped simultaneously</span>
-            <p class="impact-insight">Not translated. Transcreated. Every market got a version that felt native.</p>
-            <span class="impact-cta">How we got there →</span>
+            <span class="impact-label" data-i18n="stat3-label">Languages shipped simultaneously</span>
+            <p class="impact-insight" data-i18n="stat3-insight">Not translated. Transcreated. Every market got a version that felt native.</p>
+            <span class="impact-cta" data-i18n="stat3-cta">Discover the approach →</span>
           </div>
 
         </div>
 
         <!-- 4. CAPABILITIES -->
-        <p class="home-bridge-small">What this looks like in practice.</p>
+        <p class="home-bridge-small" data-i18n="what-i-do-label">What this looks like in practice.</p>
 
         <div class="disc-pills" role="list">
           <span class="disc-pill" role="listitem" tabindex="0" data-disc="content-strategy" data-disc-target="content-strategy">
@@ -1417,11 +1530,11 @@ body {
         <hr class="home-divider" style="margin-top:3rem;">
 
         <blockquote class="peer-quote">
-          "A pro writer with a strategic mind and a branding heart."
-          <cite>— Alejandro Encinas, her manager at Domestika</cite>
+          <span data-i18n="peer-quote">"A pro writer with a strategic mind and a branding heart."</span>
+          <cite data-i18n="peer-cite">— Alejandro Encinas, her manager at Domestika</cite>
         </blockquote>
 
-        <p class="home-bridge-small">Where the work happened.</p>
+        <p class="home-bridge-small" data-i18n="where-label">Where the work happened.</p>
         <div class="company-strip">
           <span>Red Points</span>
           <span class="dot"></span>
@@ -1438,19 +1551,19 @@ body {
       <!-- WORK TAB ───────────────────────────────────────────────── -->
       <div id="tab-work" class="tab-content" style="display:none;">
 
-        <p class="home-bridge" style="margin-bottom:2rem;">A few projects where getting the message right made everything else easier.</p>
+        <p class="home-bridge" style="margin-bottom:2rem;" data-i18n="work-entry">When the message is right, everything follows:</p>
 
         <!-- Card 1: Red Points -->
         <div class="work-card" tabindex="0" data-expandable>
           <div class="card-category">B2B SaaS · SEO Strategy · 2019–2020</div>
           <div class="card-title">Red Points</div>
-          <p class="card-insight">Turned a B2B platform into the source people cited on brand protection.</p>
+          <p class="card-insight" data-i18n="w1-insight">Turned a scale-up into the industry reference on brand protection.</p>
           <div class="card-metric">
             <span class="card-metric-num">+500%</span>
-            <span class="card-metric-label">YoY organic traffic growth</span>
+            <span class="card-metric-label" data-i18n="w1-metric">YoY organic traffic growth</span>
           </div>
-          <span class="card-support">~40 articles published · still ranking today</span>
-          <a href="#" class="card-link" data-expand>Read case study →</a>
+          <span class="card-support" data-i18n="w1-support">~40 articles published · still ranking today</span>
+          <a href="#" class="card-link" data-expand data-i18n="w-cta-read">Read case study →</a>
           <div class="case-body">
             <p>Built an SEO content programme from scratch for Red Points, a B2B SaaS brand protection platform targeting IP managers and legal teams. Starting with keyword research via Screaming Frog and SEMrush, I identified high-intent topics across trademark enforcement, brand protection, and IP law.</p>
             <p>Produced ~40 long-form articles — written to rank and written to be read. The work contributed to 500% YoY organic traffic growth. One article on Amazon's fake review problem gained enough traction that Amazon's Head of Brand called Red Points directly to request it be taken down.</p>
@@ -1463,10 +1576,10 @@ body {
         <div class="work-card" tabindex="0" data-expandable>
           <div class="card-category">Creative Direction · Campaign · 2022</div>
           <div class="card-title">Domestika — Black Friday</div>
-          <p class="card-insight">Subverted the category convention. Black Friday went full colour.</p>
+          <p class="card-insight" data-i18n="w2-insight">Breaking category codes. Black Friday in full colour.</p>
           <div class="card-metric">
             <span class="card-metric-num">8</span>
-            <span class="card-metric-label">Languages · 6 channels · simultaneously</span>
+            <span class="card-metric-label" data-i18n="w2-metric">Languages · 6 channels · simultaneously</span>
           </div>
           <div class="video-thumbs" style="margin-bottom:0.75rem;">
             <div class="video-thumb" data-video="domestika_bf" tabindex="0" role="button" aria-label="Play Black Friday spot">
@@ -1490,10 +1603,10 @@ body {
         <div class="work-card" tabindex="0" data-expandable>
           <div class="card-category">B2B SaaS · Instructional Content · 2024</div>
           <div class="card-title">Usercentrics</div>
-          <p class="card-insight">Made data privacy worth reading.</p>
+          <p class="card-insight" data-i18n="w3-insight">Made data privacy worth reading.</p>
           <div class="card-metric">
             <span class="card-metric-num">3,000+</span>
-            <span class="card-metric-label">Marketers reached · 3 courses live</span>
+            <span class="card-metric-label" data-i18n="w3-metric">Marketers reached · 3 courses live</span>
           </div>
           <a href="#" class="card-link" data-expand>Read case study →</a>
           <div class="case-body">
@@ -1508,10 +1621,10 @@ body {
         <div class="work-card" tabindex="0" data-expandable>
           <div class="card-category">Brand · PR · UX Writing · 2020–2023</div>
           <div class="card-title">Domestika — Brand &amp; PR</div>
-          <p class="card-insight">Gave a platform with 8M users the words to match its scale.</p>
+          <p class="card-insight" data-i18n="w4-insight">Giving a fast-growing brand the coherent voice it needed to scale.</p>
           <div class="card-metric">
             <span class="card-metric-num">$110M</span>
-            <span class="card-metric-label">Series B · press kit &amp; narrative</span>
+            <span class="card-metric-label" data-i18n="w4-metric">Series B · press kit &amp; narrative</span>
           </div>
           <div class="video-thumbs" style="margin-bottom:0.75rem;">
             <div class="video-thumb" data-video="domestika_course_trailer" tabindex="0" role="button" aria-label="Play Domestika Plus walkthrough">
@@ -1545,14 +1658,14 @@ body {
 
         <!-- Experience -->
         <div class="cv-section">
-          <span class="section-label">Experience</span>
+          <span class="section-label" data-i18n="cv-exp">Experience</span>
 
           <div class="cv-job">
             <div class="cv-job-header">
               <span class="cv-job-company">Freelance</span>
-              <span class="cv-job-dates">2023–Present</span>
+              <span class="cv-job-dates" data-i18n="cv-present">2023–Present</span>
             </div>
-            <div class="cv-job-role">Content Strategy &amp; Brand</div>
+            <div class="cv-job-role" data-i18n="cv-role-freelance">Content Strategy &amp; Brand</div>
             <p>Content strategy and brand projects for B2B SaaS clients, including Usercentrics (consent management, data privacy) via Camping agency in Barcelona. Engagement led by my former senior lead at Domestika — a second chapter of working together, this time on content built around clarity and intrigue for B2B SaaS company Usercentrics. Three courses live on the Usercentrics Academy, trusted by 3,000+ marketers worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="cv-live-link">View live →</a></p>
           </div>
 
@@ -1561,7 +1674,7 @@ body {
               <span class="cv-job-company">Domestika</span>
               <span class="cv-job-dates">2020–2023</span>
             </div>
-            <div class="cv-job-role">Senior Copywriter &amp; Campaigns Lead</div>
+            <div class="cv-job-role" data-i18n="cv-role-domestika">Senior Copywriter &amp; Campaigns Lead</div>
             <p>Led creative direction and campaigns reaching 8M+ users across 12 countries. Conceived global Black Friday concept (6 channels, 8 languages). Contributed to brand guide, messaging architecture, and $110M Series B communications.</p>
           </div>
 
@@ -1570,7 +1683,7 @@ body {
               <span class="cv-job-company">Red Points</span>
               <span class="cv-job-dates">2019–2020</span>
             </div>
-            <div class="cv-job-role">Marketing Copywriter</div>
+            <div class="cv-job-role" data-i18n="cv-role-rp">Marketing Copywriter</div>
             <p>Built SEO content programme contributing to +500% YoY organic traffic growth. Produced ~40 articles — one on Amazon's fake reviews gained enough traction that Amazon's Head of Brand called to request it be taken down.</p>
           </div>
 
@@ -1579,17 +1692,17 @@ body {
               <span class="cv-job-company">Termix</span>
               <span class="cv-job-dates">2018–2019</span>
             </div>
-            <div class="cv-job-role">Communication &amp; Content</div>
+            <div class="cv-job-role" data-i18n="cv-role-termix">Communication &amp; Content</div>
             <p>Brand content and digital campaigns for the French market.</p>
           </div>
         </div>
 
         <!-- Skills & Character -->
         <div class="cv-section skills-section">
-          <span class="section-label">How I work</span>
+          <span class="section-label" data-i18n="cv-how">How I work</span>
           <div class="skills-grid">
             <div>
-              <div class="skills-column-label">What I do</div>
+              <div class="skills-column-label" data-i18n="cv-what">What I do</div>
               <ul class="skills-list">
                 <li>Content strategy &amp; architecture</li>
                 <li>Brand messaging &amp; voice</li>
@@ -1602,7 +1715,7 @@ body {
               </ul>
             </div>
             <div>
-              <div class="skills-column-label">How I approach it</div>
+              <div class="skills-column-label" data-i18n="cv-approach">How I approach it</div>
               <ul class="skills-list">
                 <li>Grounded in the reader</li>
                 <li>Curious about data</li>
@@ -1620,7 +1733,7 @@ body {
 
         <!-- Education -->
         <div class="cv-section">
-          <span class="section-label">Education &amp; Certifications</span>
+          <span class="section-label" data-i18n="cv-edu">Education &amp; Certifications</span>
           <div class="cv-edu-item">Section4 · Brand Strategy <em style="color:var(--ink-faint); font-style:italic;">(certified)</em></div>
           <div class="cv-edu-item">Section4 · Storytelling <em style="color:var(--ink-faint); font-style:italic;">(certified)</em></div>
           <div class="cv-edu-item" style="margin-top:0.75rem;">BA International Business with Languages · Dublin City University · 2006–2009</div>
@@ -1629,15 +1742,15 @@ body {
 
         <!-- Languages + Tools — grouped -->
         <div class="cv-section">
-          <span class="section-label">Languages &amp; Tools</span>
+          <span class="section-label" data-i18n="cv-lang-tools">Languages &amp; Tools</span>
           <div class="cv-meta-row">
             <div class="cv-meta-block">
-              <span class="cv-meta-label">Languages</span>
+              <span class="cv-meta-label" data-i18n="cv-lang-label">Languages</span>
               <span class="cv-meta-value">English (native) · French (native) · Spanish (fluent)</span>
             </div>
             <div class="cv-meta-block">
-              <span class="cv-meta-label">AI &amp; Tools</span>
-              <span class="cv-meta-value">Claude · ChatGPT · Perplexity · SEMrush · Screaming Frog · Figma</span>
+              <span class="cv-meta-label" data-i18n="cv-tools-label">AI &amp; Tools</span>
+              <span class="cv-meta-value">Claude · ChatGPT · Perplexity · HubSpot · SEMrush · Screaming Frog · Figma</span>
             </div>
           </div>
         </div>
@@ -1650,24 +1763,24 @@ body {
       <div id="tab-about" class="tab-content" style="display:none;">
 
         <div class="about-body">
-          <p>I've spent the last 8 years working across three languages, in B2B and B2C environments, helping turn complex ideas into something people can understand and use.</p>
+          <p data-i18n="about-p1">Eight years. Three languages. From trademark law to creative education, working on complex subjects that needed to make sense, and fast.</p>
 
-          <p>The majority of that work sat in areas where clarity really matters, from IP law and data privacy to creative education. Not just simplifying for the sake of it, but making sure the message holds up when people need to act on it.</p>
+          <p data-i18n="about-p2">What I learned: clarity doesn't happen by accident. It gets built.</p>
 
-          <p>I've led international campaigns running in up to eight languages, working closely with growth teams, designers, copywriters and localisation teams to get everything aligned. What I care about in those moments is not just the output, but the level of precision behind it.</p>
+          <p data-i18n="about-p3">Not just simplifying for the sake of it. But making sure the message holds up when people need to act on it.</p><p data-i18n="about-p4">I've led international campaigns delivered in eight languages, working closely with growth teams, designers, copywriters and localisation teams to get everything aligned. What I care about in those moments is not just the output, but the level of precision that becomes possible when a team communicates with ease and fluency.</p>
 
-          <blockquote class="about-pull-quote">When the message is right, everything else moves faster.</blockquote>
+          <blockquote class="about-pull-quote" data-i18n="about-pullquote">When the message is right, everything follows.</blockquote>
 
-          <p>I'm comfortable in environments where the stakes are high and decisions need to be made. I know what good looks like, and I'm not afraid to say when something isn't there yet.</p>
+          <p data-i18n="about-p5">I'm in my element when the stakes are real and decisions matter. I know what good looks like and I'm not afraid to say when something isn't there yet.</p>
 
-          <p>A few years ago, AI started changing the shape of content work in a very real way — including my own role. It pushed me to step back and be more intentional about where I bring value.</p>
+          <p data-i18n="about-p6">In 2023, AI profoundly changed the way we work. I chose to see it as an opportunity: to go independent, move to France, and work differently.</p>
 
-          <p>Today, I focus on the strategic side, where creative instinct, structure, and emerging tools come together. I'm interested in how teams can move faster, stay consistent, and make better decisions as the way we produce content continues to evolve.</p>
+          <p data-i18n="about-p7">I took time to explore, to learn, to let my curiosity do its work. Until AI became an ally — a tool that amplifies what I know how to do, without replacing my vision and my judgment.</p><p data-i18n="about-p8">Today I focus on the strategic side: where editorial instinct, structure and emerging tools come together. What interests me is how teams can move faster, stay consistent and make better decisions. Content moves fast and I'm determined to keep pace with it.</p>
         </div>
 
         <hr class="about-divider">
 
-        <p class="about-location">Marseille, France · open to remote across EU and Ireland</p>
+        <p class="about-location" data-i18n="about-location">Marseille, France · open to remote across EU and Ireland</p>
 
         <div class="cert-badges">
           <span class="cert-badges-label">Section4</span>
@@ -1678,7 +1791,7 @@ body {
         <hr class="about-divider">
 
         <div class="about-contact">
-          <p class="about-contact-line">Drop me a line.</p>
+          <p class="about-contact-line" data-i18n="about-contact">Drop me a line.</p>
           <p class="about-contact-details">
             <a href="mailto:treculelise@gmail.com" style="color:inherit; text-decoration:none; border-bottom: 0.5px solid rgba(212,83,126,0.3); padding-bottom:1px; transition: color 200ms ease, border-color 200ms ease;">treculelise@gmail.com</a><br>
             <a href="https://linkedin.com/in/elise-trecul" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom: 0.5px solid rgba(212,83,126,0.3); padding-bottom:1px; transition: color 200ms ease, border-color 200ms ease;">linkedin.com/in/elise-trecul</a>
@@ -1689,7 +1802,7 @@ body {
       <!-- NOTES TAB ──────────────────────────────────────────────── -->
       <div id="tab-notes" class="tab-content" style="display:none;">
 
-        <p class="home-bridge" style="margin-bottom:2.5rem;">What it's like to work with me, in the words of people who have.</p>
+        <p class="home-bridge" style="margin-bottom:2.5rem;" data-i18n="notes-intro">What it's like to work with me, in the words of people who have.</p>
 
         <div class="kind-quote" style="margin-bottom:3rem;">
           <blockquote style="font-size:18px;">"Three years later, she became an essential person in the team and the company. I witnessed her evolution as a professional — becoming the pro writer (that she already was) but with a strategic mind and a branding heart. She is more than a copywriter and is capable of defining 360° campaigns. I'm impressed by her leadership skills and her motivation to do great things."</blockquote>
@@ -1711,7 +1824,7 @@ body {
           <p class="attribution"><strong>Mackenzie Orrock</strong> <span style="color:var(--ink-faint); font-weight:400;">— Communications Executive, Domestika · colleague</span></p>
         </div>
 
-        <a class="kind-words-footer-link" href="https://www.linkedin.com/in/elise-trecul/details/recommendations/" target="_blank" rel="noopener">See all 11 on LinkedIn →</a>
+        <a class="kind-words-footer-link" href="https://www.linkedin.com/in/elise-trecul/details/recommendations/" target="_blank" rel="noopener" data-i18n="notes-footer">See all 11 on LinkedIn →</a>
       </div>
 
       <!-- ─── DISCIPLINE SHEETS ──────────────────────────────────── -->
@@ -1913,10 +2026,6 @@ body {
         </div>
       </div>
 
-      <!-- Tagline -->
-      <div class="tagline-wrap" aria-hidden="true">
-        <span class="tagline-text" id="tagline"></span>
-      </div>
 
       <!-- Persistent contact (visible on every tab) -->
       <div class="persistent-contact">
@@ -1949,34 +2058,7 @@ body {
     usercentrics_intro:       null  // [PENDING]
   };
 
-  /* ── Tagline ── */
-  const TAGLINE = 'every idea starts on paper.';
-  const taglineEl = document.getElementById('tagline');
-
-  function animateTagline() {
-    taglineEl.innerHTML = '';
-    const chars = TAGLINE.split('');
-    chars.forEach((ch, i) => {
-      const span = document.createElement('span');
-      span.className = 'char';
-      if (ch === '.') span.classList.add('fullstop');
-      span.textContent = ch;
-      span.style.visibility = 'hidden';
-      taglineEl.appendChild(span);
-    });
-
-    const charEls = taglineEl.querySelectorAll('.char');
-    charEls.forEach((el, i) => {
-      setTimeout(() => {
-        el.style.visibility = 'visible';
-        if (el.classList.contains('fullstop')) {
-          setTimeout(() => el.classList.add('glow'), 80);
-        }
-      }, i * 40);
-    });
-  }
-
-  /* ── Tab switching ── */
+    /* ── Tab switching ── */
   function switchTab(tabName) {
     if (tabName === currentTab || transitioning) return;
     transitioning = true;
@@ -2033,8 +2115,7 @@ body {
           setTimeout(() => {
             sheet.style.transform = 'translateX(0) translateY(0) rotate(0deg)';
             transitioning = false;
-            animateTagline();
-          }, dur + 80);
+                    }, dur + 80);
         });
       });
     }, dur);
@@ -2071,7 +2152,6 @@ body {
       });
     });
 
-    animateTagline();
   }
 
   function closeDiscSheet(discId, doAnimate) {
@@ -2119,12 +2199,6 @@ body {
       if (discPill) discPill.classList.add('visited');
 
       // Flicker tagline full stop
-      const fullstop = document.querySelector('.tagline-text .fullstop');
-      if (fullstop) {
-        fullstop.classList.add('flicker');
-        setTimeout(() => fullstop.classList.remove('flicker'), 400);
-      }
-
       visitedDiscs.add(disc);
       const wasOnHome = currentTab === 'home';
       if (!wasOnHome) switchTab('home');
@@ -2150,8 +2224,7 @@ body {
       if (discWord) discWord.classList.add('visited');
 
       closeDiscSheet(disc, true);
-      animateTagline();
-      return;
+        return;
     }
   });
 
@@ -2279,30 +2352,35 @@ body {
   });
 
   function triggerPrint() {
+    // Switch to CV tab first so print captures the right content
+    if (currentTab !== 'cv') switchTab('cv');
+
     const tabs = document.querySelector('.tabs');
     const paperclip = document.querySelector('.paperclip');
     const folderBody = document.querySelector('.folder-body');
 
     // Pre-print animation
-    tabs.style.transition = 'opacity 200ms ease';
-    tabs.style.opacity = '0';
-    paperclip.style.transition = 'opacity 200ms ease, transform 300ms ease';
-    paperclip.style.opacity = '0';
-    paperclip.style.transform = 'translateY(-30px)';
-    folderBody.style.transition = 'border-color 200ms ease';
-    folderBody.style.borderColor = 'transparent';
-
     setTimeout(() => {
-      window.print();
+      tabs.style.transition = 'opacity 200ms ease';
+      tabs.style.opacity = '0';
+      paperclip.style.transition = 'opacity 200ms ease, transform 300ms ease';
+      paperclip.style.opacity = '0';
+      paperclip.style.transform = 'translateY(-30px)';
+      folderBody.style.transition = 'border-color 200ms ease';
+      folderBody.style.borderColor = 'transparent';
 
-      // Restore after print
       setTimeout(() => {
-        tabs.style.opacity = '1';
-        paperclip.style.opacity = '1';
-        paperclip.style.transform = '';
-        folderBody.style.borderColor = '';
-      }, 300);
-    }, 350);
+        window.print();
+
+        // Restore after print
+        setTimeout(() => {
+          tabs.style.opacity = '1';
+          paperclip.style.opacity = '1';
+          paperclip.style.transform = '';
+          folderBody.style.borderColor = '';
+        }, 300);
+      }, 350);
+    }, currentTab !== 'cv' ? 400 : 0);
   }
 
   /* ── Logo pulse (once on load) ── */
@@ -2327,7 +2405,179 @@ body {
   }
 
   /* ── Init ── */
-  animateTagline();
+
+})();
+
+/* ─── LANGUAGE TOGGLE SYSTEM ──────────────────────────────────────────── */
+(function() {
+  'use strict';
+
+  const translations = {
+    fr: {
+      // Meta
+      'subtitle': 'Responsable Contenu &amp; Marque · B2B SaaS · Marseille',
+      'tab-home': 'Accueil',
+      'tab-work': 'Projets',
+      'tab-cv': 'CV',
+      'tab-notes': 'Notes',
+      'tab-about': 'À propos',
+
+      // Home — positioning
+      'positioning': 'La clarté est plus difficile qu\'on ne le croit. J\'en ai fait ma mission depuis huit ans ; construire des systèmes de contenu et de marque qui ont une vraie personnalité, qui s\'adaptent à plusieurs marchés, et qui rendent des sujets complexes réellement captivants.',
+      'pull-quote': 'Je suis celle vers qui les équipes se tournent quand les choses doivent avancer : concevoir la direction créative, écrire les messages, aligner les équipes, et livrer des contenus qui ont même poussé le Head of Brand de chez Amazon à décrocher son téléphone.',
+
+      // Home — impact cards
+      'stat1-label': 'Croissance du trafic organique',
+      'stat1-insight': 'Un programme de contenu. Un an. Red Points est devenu la référence sur la protection de marque.',
+      'stat1-cta': 'Lire l\'histoire →',
+      'stat2-label': 'Utilisateurs atteints',
+      'stat2-insight': 'Des campagnes dans 12 pays. Un seul concept créatif. Le moment commercial le plus fort de Domestika.',
+      'stat2-cta': 'Voir la campagne →',
+      'stat3-label': 'Langues livrées simultanément',
+      'stat3-insight': 'Pas traduit. Transcréé. Chaque marché a reçu une version qui lui ressemblait.',
+      'stat3-cta': 'Découvrir l\'approche →',
+
+      // Home — disciplines
+      'what-i-do-label': 'Ce que ça donne concrètement.',
+      'pill-cs': 'Content strategy',
+      'pill-cs-micro': 'poser l\'architecture avant les mots',
+      'pill-cd': 'Direction créative',
+      'pill-cd-micro': 'transformer un brief en monde créatif',
+      'pill-bm': 'Brand messaging',
+      'pill-bm-micro': 'révéler la vraie voix d\'une marque',
+      'pill-cw': 'Copywriting',
+      'pill-cw-micro': 'chaque mot doit mériter sa place',
+      'pill-v': 'Vidéo',
+      'pill-v-micro': 'donner vie à une idée',
+
+      // Home — credibility
+      'peer-quote': '"Une pro de l\'écriture avec un esprit stratégique et un cœur de brand."',
+      'peer-cite': '— Alejandro Encinas, son manager chez Domestika',
+      'where-label': 'Là où le travail a eu lieu.',
+
+      // Work
+      'work-entry': 'Quand le message est juste, tout s\'enchaîne :',
+      'w1-insight': 'Transformer une scale-up en référence du secteur sur la protection de marque.',
+      'w1-metric': 'Croissance du trafic organique',
+      'w1-support': '~40 articles publiés · toujours référencés aujourd\'hui',
+      'w2-insight': 'Casser les codes du secteur. Black Friday en couleurs.',
+      'w2-metric': 'Langues · 6 canaux · simultanément',
+      'w3-insight': 'La data privacy, sans l\'ennui.',
+      'w3-metric': 'Professionnels du marketing atteints · 3 cours en ligne',
+      'w4-insight': 'Donner une voix cohérente à une marque qui grandissait trop vite.',
+      'w4-metric': 'Série B · kit presse et narrative',
+      'w-cta-read': 'Lire le cas →',
+
+      // CV
+      'cv-exp': 'Expérience',
+      'cv-present': '2023–Présent',
+      'cv-role-freelance': 'Stratégie de contenu &amp; Marque',
+      'cv-role-domestika': 'Rédactrice senior &amp; responsable campagnes',
+      'cv-role-rp': 'Marketing Copywriter',
+      'cv-role-termix': 'Communication &amp; Contenu',
+      'cv-how': 'Comment je travaille',
+      'cv-what': 'Ce que je fais',
+      'cv-approach': 'Comment je l\'aborde',
+      'cv-edu': 'Formation &amp; Certifications',
+      'cv-lang-tools': 'Langues &amp; Outils',
+      'cv-lang-label': 'Langues',
+      'cv-tools-label': 'IA &amp; Outils',
+
+      // Notes
+      'notes-intro': 'Travailler avec moi, par ceux qui l\'ont vécu.',
+      'notes-footer': 'Voir les 11 avis sur LinkedIn →',
+
+      // About
+      'about-p1': 'Huit ans. Trois langues. Du droit de marque à l\'éducation créative, des sujets complexes qu\'il fallait rendre accessibles, et vite.',
+      'about-p2': 'Ce que j\'ai appris : la clarté ne s\'improvise pas. Elle se construit.',
+      'about-p3': 'Pas pour simplifier à tout prix. Mais pour s\'assurer que le message tient la route quand les gens doivent passer à l\'action.',
+      'about-p4': 'J\'ai dirigé des campagnes internationales déclinées en huit langues, en collaborant avec des équipes growth, des designers, des copywriters et des équipes de localisation pour que tout soit aligné. Ce qui m\'importe dans ces moments-là, ce n\'est pas seulement le résultat, c\'est le niveau de précision qui devient possible avec une équipe qui communique avec aise et fluidité.',
+      'about-pullquote': 'Quand le message est juste, tout s\'enchaîne.',
+      'about-p5': 'Je suis dans mon élément quand les enjeux sont réels et que les décisions comptent. Je sais ce qui est bien fait et je n\'hésite pas à le dire quand ce n\'est pas encore le cas.',
+      'about-p6': 'En 2023, l\'IA a profondément changé notre façon de travailler. J\'ai choisi d\'y voir une opportunité : me mettre à mon compte, revenir en France, et travailler autrement.',
+      'about-p7': 'J\'ai pris le temps d\'explorer, de me former, de laisser ma curiosité faire son travail. Jusqu\'à ce que l\'IA devienne un allié ; un outil qui amplifie ce que je sais faire, sans remplacer ma vision et mon jugement.',
+      'about-p8': 'Aujourd\'hui, je me concentre sur le côté stratégique : là où l\'instinct éditorial, la structure et les nouveaux outils se rejoignent. Ce qui m\'intéresse, c\'est comment les équipes peuvent aller plus vite, rester cohérentes et prendre de meilleures décisions. Le contenu évolue vite et je suis déterminée à en suivre le rythme.',
+      'about-contact': 'Écrivez-moi.',
+      'about-location': 'Marseille, France · disponible en remote',
+    }
+  };
+
+  const EN_DEFAULTS = {};
+
+  function collectDefaults() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      EN_DEFAULTS[el.dataset.i18n] = el.innerHTML;
+    });
+  }
+
+  function applyLang(lang) {
+    const t = lang === 'fr' ? translations.fr : null;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      el.innerHTML = (t && t[key]) ? t[key] : (EN_DEFAULTS[key] || el.innerHTML);
+    });
+
+    // Update html lang attribute
+    document.documentElement.lang = lang;
+
+    // Update toggle buttons
+    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en');
+    document.getElementById('lang-fr').setAttribute('aria-pressed', lang === 'fr');
+
+    // Persist
+    localStorage.setItem('et-lang', lang);
+  }
+
+  function init() {
+    collectDefaults();
+
+    // Restore saved preference
+    const saved = localStorage.getItem('et-lang');
+    if (saved) {
+      applyLang(saved);
+    }
+
+    // Toggle buttons
+    document.getElementById('lang-en').addEventListener('click', () => {
+      applyLang('en');
+      hideBanner();
+    });
+    document.getElementById('lang-fr').addEventListener('click', () => {
+      applyLang('fr');
+      hideBanner();
+    });
+
+    // French browser detection banner
+    const browserFr = (navigator.language || navigator.userLanguage || '').startsWith('fr');
+    const alreadyPrompted = sessionStorage.getItem('et-lang-prompted');
+    const currentLang = localStorage.getItem('et-lang');
+
+    if (browserFr && !alreadyPrompted && currentLang !== 'fr') {
+      setTimeout(() => {
+        document.getElementById('lang-banner').classList.add('visible');
+      }, 2000);
+    }
+
+    document.getElementById('banner-yes').addEventListener('click', () => {
+      applyLang('fr');
+      hideBanner();
+    });
+    document.getElementById('banner-no').addEventListener('click', hideBanner);
+  }
+
+  function hideBanner() {
+    document.getElementById('lang-banner').classList.remove('visible');
+    sessionStorage.setItem('et-lang-prompted', '1');
+  }
+
+  // Run after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 
 })();
 </script>
