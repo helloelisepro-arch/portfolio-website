@@ -1485,6 +1485,51 @@ body {
 @media (max-width: 480px) {
   .card-video-block { grid-template-columns: 1fr; }
 }
+
+/* ─── DISC BOTTOM NAV ────────────────────────────────────────────────────── */
+.disc-bottom-nav {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 0.5px solid var(--sheet-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.disc-back-btn {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--rose);
+  background: none;
+  border: 0.5px solid rgba(212, 83, 126, 0.35);
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  letter-spacing: 0.02em;
+}
+.disc-back-btn:hover {
+  background: rgba(212, 83, 126, 0.07);
+  border-color: var(--rose);
+}
+
+/* ─── PILL PERMANENT ARROW ──────────────────────────────────────────────── */
+.disc-pill::after {
+  content: '→';
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-left: 6px;
+  transition: color 200ms ease, transform 200ms ease;
+  display: inline-block;
+}
+.disc-pill:hover::after,
+.disc-pill:focus::after {
+  color: var(--rose);
+  transform: translateX(3px);
+}
+.disc-pill.visited::after {
+  color: rgba(212, 83, 126, 0.5);
+}
 </style>
 </head>
 <body>
@@ -1565,21 +1610,21 @@ body {
           <div class="impact-card" tabindex="0" data-tab-target="work" data-work-card="0">
             <span class="impact-num">+500%</span>
             <span class="impact-label" data-i18n="stat1-label">Organic traffic growth</span>
-            <p class="impact-insight" data-i18n="stat1-insight">One content programme. One year. Red Points became the source people cited on brand protection.</p>
+            <p class="impact-insight" data-i18n="stat1-insight">One content programme. One year.<br>Red Points became the source people cited on brand protection.</p>
             <span class="impact-cta" data-i18n="stat1-cta">Read the story →</span>
           </div>
 
           <div class="impact-card" tabindex="0" data-tab-target="work" data-work-card="1">
             <span class="impact-num">8M+</span>
             <span class="impact-label" data-i18n="stat2-label">Users reached</span>
-            <p class="impact-insight" data-i18n="stat2-insight">Campaigns across 12 countries. One creative concept. Domestika's biggest commercial moment.</p>
+            <p class="impact-insight" data-i18n="stat2-insight">Campaigns across 12 countries. One creative concept.<br>Domestika's biggest commercial moment.</p>
             <span class="impact-cta" data-i18n="stat2-cta">See the campaign →</span>
           </div>
 
           <div class="impact-card" tabindex="0" data-tab-target="work" data-work-card="1">
             <span class="impact-num">8</span>
             <span class="impact-label" data-i18n="stat3-label">Languages shipped simultaneously</span>
-            <p class="impact-insight" data-i18n="stat3-insight">Not translated. Transcreated. Every market got a version that felt native.</p>
+            <p class="impact-insight" data-i18n="stat3-insight">Not translated. Transcreated.<br>Every market got a version that felt native.</p>
             <span class="impact-cta" data-i18n="stat3-cta">Discover the approach →</span>
           </div>
 
@@ -1661,7 +1706,7 @@ body {
         <div class="work-card" tabindex="0" data-expandable>
           <div class="card-category">Creative Direction · Campaign · 2022</div>
           <div class="card-title">Domestika — Black Friday</div>
-          <p class="card-insight" data-i18n="w2-insight">Breaking category codes. Black Friday in full colour.</p>
+          <p class="card-insight" data-i18n="w2-insight">Breaking category codes.<br>Black Friday in full colour.</p>
           <div class="card-metric">
             <span class="card-metric-num">8</span>
             <span class="card-metric-label" data-i18n="w2-metric">Languages · 6 channels · simultaneously</span>
@@ -1954,6 +1999,9 @@ body {
           <a href="#" data-disc-target="brand-messaging" class="pencil-link">brand messaging</a> ·
           <a href="#" data-disc-target="copywriting" class="pencil-link">copywriting</a>
         </div>
+        <div class="disc-bottom-nav">
+          <button class="disc-back-btn" data-back="content-strategy">← Back to home</button>
+        </div>
       </div>
 
       <!-- Creative Direction -->
@@ -1965,32 +2013,27 @@ body {
         <div class="disc-item">
           <div class="disc-item-title">Domestika — Black Friday</div>
           <p>Originated "Be bold, be colorful" as the creative direction for Domestika's 2022 Black Friday global campaign. Concept to execution across YouTube, Meta, TikTok, Google, CRM, and Affiliate — 8 languages, 6 channels simultaneously. Led the campaign from brief to live.</p>
-          <div class="video-thumbs" style="margin-top:0.75rem;">
-            <div class="video-thumb interactive" data-video="domestika_bf" tabindex="0" role="button">
-              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
-                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
-                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
-              </svg>
-              Black Friday spot
+          <div class="card-video-block" style="margin-top:1rem;">
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="tS6Ons90EmM" role="button" tabindex="0" aria-label="Play Black Friday spot">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label">Black Friday spot · 0:40</p>
             </div>
           </div>
         </div>
 
         <div class="disc-item">
-          <div class="disc-item-title">Domestika — September campaign</div>
-          <p>Concepted "Fill your routine with creativity" — seasonal campaign positioning Domestika as an everyday creative habit, not a one-off purchase.</p>
-        </div>
-
-        <div class="disc-item">
           <div class="disc-item-title">Domestika — Cyber Monday</div>
           <p>Campaign extension sustaining the Black Friday creative system through Cyber Monday. Same visual world, same verbal identity — proving the concept scaled beyond a single activation.</p>
-          <div class="video-thumbs" style="margin-top:0.75rem;">
-            <div class="video-thumb interactive" data-video="domestika_brand" tabindex="0" role="button">
-              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
-                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
-                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
-              </svg>
-              Cyber Monday spot
+          <div class="card-video-block" style="margin-top:1rem;">
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="ubL_0GIF63w" role="button" tabindex="0" aria-label="Play Cyber Monday spot">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label">Cyber Monday spot · 0:40</p>
             </div>
           </div>
         </div>
@@ -1999,6 +2042,9 @@ body {
           also filed under:
           <a href="#" data-disc-target="copywriting" class="pencil-link">copywriting</a> ·
           <a href="#" data-disc-target="video" class="pencil-link">video</a>
+        </div>
+        <div class="disc-bottom-nav">
+          <button class="disc-back-btn" data-back="creative-direction">← Back to home</button>
         </div>
       </div>
 
@@ -2028,6 +2074,9 @@ body {
           <a href="#" data-disc-target="content-strategy" class="pencil-link">content strategy</a> ·
           <a href="#" data-disc-target="copywriting" class="pencil-link">copywriting</a>
         </div>
+        <div class="disc-bottom-nav">
+          <button class="disc-back-btn" data-back="brand-messaging">← Back to home</button>
+        </div>
       </div>
 
       <!-- Copywriting -->
@@ -2056,6 +2105,9 @@ body {
           <a href="#" data-disc-target="content-strategy" class="pencil-link">content strategy</a> ·
           <a href="#" data-disc-target="brand-messaging" class="pencil-link">brand messaging</a>
         </div>
+        <div class="disc-bottom-nav">
+          <button class="disc-back-btn" data-back="copywriting">← Back to home</button>
+        </div>
       </div>
 
       <!-- Video -->
@@ -2067,13 +2119,13 @@ body {
         <div class="disc-item">
           <div class="disc-item-title">Domestika — Black Friday film</div>
           <p>Global campaign film — the centrepiece of the 2022 Black Friday push. Creative direction, script, and concept. Ran across YouTube and Meta in 8 languages.</p>
-          <div class="video-thumbs" style="margin-top:0.75rem;">
-            <div class="video-thumb interactive" data-video="domestika_bf" tabindex="0" role="button">
-              <svg class="video-play-icon" viewBox="0 0 18 18" fill="none">
-                <circle cx="9" cy="9" r="8" fill="transparent" stroke="currentColor" stroke-width="0.75" opacity="0.35"/>
-                <path d="M7 6l6 3-6 3V6z" fill="var(--rose)"/>
-              </svg>
-              Black Friday spot
+          <div class="card-video-block" style="margin-top:1rem;">
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="tS6Ons90EmM" role="button" tabindex="0" aria-label="Play Black Friday spot">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label">Black Friday spot · 0:40</p>
             </div>
           </div>
         </div>
@@ -2122,6 +2174,9 @@ body {
           also filed under:
           <a href="#" data-disc-target="creative-direction" class="pencil-link">creative direction</a> ·
           <a href="#" data-disc-target="content-strategy" class="pencil-link">content strategy</a>
+        </div>
+        <div class="disc-bottom-nav">
+          <button class="disc-back-btn" data-back="video">← Back to home</button>
         </div>
       </div>
 
@@ -2527,13 +2582,13 @@ body {
 
       // Home — impact cards
       'stat1-label': 'Croissance du trafic organique',
-      'stat1-insight': 'Un programme de contenu. Un an. Red Points est devenu la référence sur la protection de marque.',
+      'stat1-insight': 'Un programme de contenu. Un an.<br>Red Points est devenu la référence sur la protection de marque.',
       'stat1-cta': 'Lire l\'histoire →',
       'stat2-label': 'Utilisateurs atteints',
-      'stat2-insight': 'Des campagnes dans 12 pays. Un seul concept créatif. Le moment commercial le plus fort de Domestika.',
+      'stat2-insight': 'Des campagnes dans 12 pays. Un seul concept créatif.<br>Le moment commercial le plus fort de Domestika.',
       'stat2-cta': 'Voir la campagne →',
       'stat3-label': 'Langues livrées simultanément',
-      'stat3-insight': 'Pas traduit. Transcréé. Chaque marché a reçu une version qui lui ressemblait.',
+      'stat3-insight': 'Pas traduit. Transcréé.<br>Chaque marché a reçu une version qui lui ressemblait.',
       'stat3-cta': 'Découvrir l\'approche →',
 
       // Home — disciplines
@@ -2559,7 +2614,7 @@ body {
       'w1-insight': 'Transformer une scale-up en référence du secteur sur la protection de marque.',
       'w1-metric': 'Croissance du trafic organique',
       'w1-support': '~40 articles publiés · toujours référencés aujourd\'hui',
-      'w2-insight': 'Casser les codes du secteur. Black Friday en couleurs.',
+      'w2-insight': 'Casser les codes du secteur.<br>Black Friday en couleurs.',
       'w2-metric': 'Langues · 6 canaux · simultanément',
       'w3-insight': 'La data privacy, sans l\'ennui.',
       'w3-metric': 'Professionnels du marketing atteints · 3 cours en ligne',
