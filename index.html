@@ -49,7 +49,7 @@ body {
 /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
 .name-hero      { font-family: 'Instrument Serif', serif; font-size: 48px; font-weight: 400; letter-spacing: -0.02em; color: var(--ink); line-height: 1.05; }
 .body-copy      { font-family: 'Geist', sans-serif; font-size: 15px; font-weight: 400; line-height: 1.7; color: var(--ink-mid); }
-.section-label  { font-family: 'Geist', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
+.section-label  { font-family: 'Geist', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); }
 .cv-meta        { font-family: 'Geist', sans-serif; font-size: 12px; font-style: italic; color: var(--ink-light); }
 .micro-tagline  { font-family: 'Instrument Serif', serif; font-size: 12px; font-style: italic; font-weight: 400; color: var(--ink-light); }
 .footnote-tag   { font-family: 'Instrument Serif', serif; font-size: 12px; font-style: italic; color: var(--ink-faint); }
@@ -288,11 +288,12 @@ body {
   line-height: 1;
   margin-bottom: 4px;
   letter-spacing: -0.02em;
+  min-width: 3.5rem;
 }
 .impact-label {
   display: block;
   font-family: 'Geist', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -316,7 +317,8 @@ body {
   transition: opacity 200ms ease;
 }
 .impact-card:hover .impact-cta,
-.impact-card:focus .impact-cta { opacity: 1; }
+.impact-card:focus .impact-cta,
+.impact-card:focus-within .impact-cta { opacity: 1; }
 
 /* ─── EDITORIAL BRIDGE LINES ─────────────────────────────────────────── */
 .home-bridge {
@@ -329,12 +331,12 @@ body {
 }
 .home-bridge-small {
   font-family: 'Geist', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-faint);
-  margin: 2.5rem 0 1.25rem;
+  margin: 2.5rem 0 1rem;
   display: block;
 }
 
@@ -406,8 +408,9 @@ body {
   font-size: 12px;
   font-weight: 400;
   color: var(--ink-light);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   flex-wrap: wrap;
+  text-transform: uppercase;
 }
 .company-strip .dot {
   width: 3px;
@@ -458,7 +461,7 @@ body {
 .discipline-word.visited { color: var(--rose); border-bottom-color: var(--rose); }
 
 .home-divider {
-  margin: 2.25rem 0;
+  margin: 2.5rem 0;
   border: none;
   border-top: 0.5px solid var(--sheet-border);
   max-width: 580px;
@@ -507,7 +510,7 @@ body {
 
 .card-category {
   font-family: 'Geist', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -549,9 +552,9 @@ body {
 }
 .card-metric-label {
   font-family: 'Geist', sans-serif;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
@@ -568,17 +571,18 @@ body {
   font-family: 'Geist', sans-serif;
   font-size: 12px;
   font-style: italic;
-  color: var(--ink-light);
+  color: var(--rose);
   text-decoration: none;
   display: inline-block;
   margin-top: 0.25rem;
-  border-bottom: 0.5px solid transparent;
-  transition: color 200ms ease, border-color 200ms ease;
+  border-bottom: 0.5px solid rgba(212, 83, 126, 0.35);
+  transition: color 200ms ease, border-color 200ms ease, filter 200ms ease;
 }
 .work-card:hover .card-link,
 .card-link:hover {
   color: var(--rose);
   border-bottom-color: var(--rose);
+  filter: drop-shadow(0 0 4px rgba(212,83,126,0.2));
 }
 
 /* Live link */
@@ -658,8 +662,8 @@ body {
 }
 .video-thumb:hover { border-color: var(--rose); color: var(--rose); }
 .video-play-icon {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
@@ -670,7 +674,7 @@ body {
   align-items: flex-start;
   padding-bottom: 1.5rem;
   border-bottom: 0.5px solid var(--sheet-border);
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
   padding-right: 60px;
 }
 .cv-header-left h1 {
@@ -702,7 +706,7 @@ body {
 }
 .pdf-btn:hover { color: var(--rose); border-color: var(--rose); }
 
-.cv-section { margin-bottom: 2.25rem; }
+.cv-section { margin-bottom: 2rem; }
 .cv-section .section-label { display: block; margin-bottom: 1.25rem; }
 
 .cv-job { margin-bottom: 0; padding: 1.25rem 0; border-bottom: 0.5px solid var(--sheet-border); }
@@ -756,7 +760,7 @@ body {
 .cv-meta-block { flex: 1; min-width: 160px; }
 .cv-meta-label {
   font-family: 'Geist', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -814,7 +818,7 @@ body {
 }
 .cert-badges-label {
   font-family: 'Geist', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -825,10 +829,11 @@ body {
   font-family: 'Geist', sans-serif;
   font-size: 12px;
   font-style: italic;
-  color: var(--ink-light);
-  border: 0.5px solid var(--sheet-border);
-  padding: 3px 10px;
+  color: var(--ink-mid);
+  border: 0.5px solid rgba(212, 83, 126, 0.3);
+  padding: 4px 12px;
   border-radius: 999px;
+  letter-spacing: 0.02em;
 }
 
 /* ─── PEER QUOTE ON HOME ─────────────────────────────────────────────── */
@@ -838,8 +843,8 @@ body {
   font-size: 15px;
   line-height: 1.6;
   color: var(--ink-mid);
-  max-width: 480px;
-  margin: 0 0 2.5rem 0;
+  max-width: 520px;
+  margin: 0 0 2rem 0;
   padding: 0;
   border: none;
 }
@@ -861,6 +866,7 @@ body {
   margin-top: 0.5rem;
   max-width: 580px;
   position: relative;
+  align-items: start;
 }
 .skills-grid::before {
   content: '';
@@ -874,7 +880,7 @@ body {
 }
 .skills-column-label {
   font-family: 'Geist', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -907,6 +913,7 @@ body {
   padding-left: 1.25rem;
   margin-bottom: 2.5rem;
   max-width: 560px;
+  page-break-inside: avoid;
 }
 .kind-quote blockquote {
   font-family: 'Instrument Serif', serif;
@@ -930,19 +937,19 @@ body {
 }
 .kind-words-footer-link {
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-family: 'Geist', sans-serif;
   font-style: italic;
   font-size: 12px;
-  color: var(--ink-faint);
+  color: var(--rose);
   text-decoration: none;
-  border-bottom: 0.5px solid var(--ink-faint);
+  border-bottom: 0.5px solid rgba(212, 83, 126, 0.4);
   padding-bottom: 1px;
-  transition: color 200ms ease, border-color 200ms ease;
+  transition: color 200ms ease, border-color 200ms ease, filter 200ms ease;
 }
 .kind-words-footer-link:hover {
-  color: var(--rose);
   border-bottom-color: var(--rose);
+  filter: drop-shadow(0 0 4px rgba(212,83,126,0.2));
 }
 
 /* ─── ABOUT CONTACT BLOCK ─────────────────────────────────────────────── */
@@ -971,8 +978,8 @@ body {
   color: var(--ink);
   border-left: 2px solid var(--rose);
   padding-left: 1.25rem;
-  margin: 2rem 0;
-  max-width: 480px;
+  margin: 2.5rem 0;
+  max-width: 520px;
   font-weight: 400;
 }
 
@@ -998,35 +1005,41 @@ body {
 
 /* ─── LANGUAGE TOGGLE ───────────────────────────────────────────────── */
 .lang-toggle {
-  position: absolute;
-  top: 5.5rem;
-  right: 2.5rem;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 6px;
-  z-index: 20;
+  gap: 0;
+  z-index: 200;
+  background: var(--paper);
+  border: 1px solid rgba(212, 83, 126, 0.55);
+  border-radius: 999px;
+  padding: 6px 14px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.14);
 }
 .lang-btn {
   font-family: 'Geist', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-light);
+  color: var(--ink-faint);
   background: none;
   border: none;
-  padding: 0;
+  padding: 0 6px;
   cursor: pointer;
   transition: color 200ms ease;
   line-height: 1;
 }
-.lang-btn.active { color: var(--ink); }
-.lang-btn:hover { color: var(--rose); }
+.lang-btn.active { color: var(--rose); }
+.lang-btn:hover { color: var(--rose); opacity: 0.8; }
 .lang-sep {
   font-family: 'Geist', sans-serif;
   font-size: 10px;
-  color: var(--ink-faint);
+  color: var(--sheet-border);
   user-select: none;
+  padding: 0 2px;
 }
 
 /* ─── FRENCH DETECTION BANNER ──────────────────────────────────────── */
@@ -1126,7 +1139,7 @@ body {
 }
 .disc-back-nav:hover { color: var(--ink); }
 
-.disc-name { display: block; margin-bottom: 0.5rem; }
+.disc-name { display: block; margin-bottom: 0.5rem; margin-top: 0.25rem; }
 .disc-tagline {
   font-family: 'Instrument Serif', serif;
   font-size: 15px;
@@ -1283,7 +1296,7 @@ body {
   .name-hero { font-size: 30px; }
   .pull-quote { font-size: 18px; margin: 1.75rem 0; }
   .impact-grid { grid-template-columns: 1fr; gap: 1px; }
-  .disc-pills { gap: 0.4rem; }
+  .disc-pills { gap: 0.4rem; row-gap: 0.6rem; }
   .disc-pill { font-size: 12px; padding: 6px 12px; }
   .company-strip { gap: 0.75rem; }
   .sheet-logo { width: 36px; height: 36px; top: 1.75rem; right: 1.25rem; }
@@ -1466,7 +1479,7 @@ body {
         <!-- 1. WHO -->
         <div class="home-header">
           <h1 class="name-hero">Élise Trécul</h1>
-          <p class="home-subtitle" data-i18n="subtitle">Content &amp; Brand Strategist · B2B SaaS · Marseille</p>
+          <p class="home-subtitle" data-i18n="subtitle">Content &amp;&nbsp;Brand Strategist&nbsp;·&nbsp;B2B SaaS&nbsp;·&nbsp;Marseille</p>
         </div>
 
         <!-- 2. POINT OF VIEW -->
@@ -1562,11 +1575,11 @@ body {
             <span class="card-metric-num">+500%</span>
             <span class="card-metric-label" data-i18n="w1-metric">YoY organic traffic growth</span>
           </div>
-          <span class="card-support" data-i18n="w1-support">~40 articles published · still ranking today</span>
+          <span class="card-support" data-i18n="w1-support">40+ articles published · <a href="https://www.redpoints.com/blog/author/etreculredpoints-com/?nab=0" target="_blank" rel="noopener" class="case-live-link" style="font-style:normal;">still ranking today ↗</a></span>
           <a href="#" class="card-link" data-expand data-i18n="w-cta-read">Read case study →</a>
           <div class="case-body">
             <p>Built an SEO content programme from scratch for Red Points, a B2B SaaS brand protection platform targeting IP managers and legal teams. Starting with keyword research via Screaming Frog and SEMrush, I identified high-intent topics across trademark enforcement, brand protection, and IP law.</p>
-            <p>Produced ~40 long-form articles — written to rank and written to be read. The work contributed to 500% YoY organic traffic growth. One article on Amazon's fake review problem gained enough traction that Amazon's Head of Brand called Red Points directly to request it be taken down.</p>
+            <p>Produced 40+ long-form articles — written to rank and written to be read. The work contributed to 500% YoY organic traffic growth. One article on Amazon's fake review problem gained enough traction that Amazon's Head of Brand called Red Points directly to request it be taken down.</p>
             <p>Articles remain indexed and ranking today.</p>
             <button class="case-close" data-collapse>Close ↑</button>
           </div>
@@ -1666,7 +1679,7 @@ body {
               <span class="cv-job-dates" data-i18n="cv-present">2023–Present</span>
             </div>
             <div class="cv-job-role" data-i18n="cv-role-freelance">Content Strategy &amp; Brand</div>
-            <p>Content strategy and brand projects for B2B SaaS clients, including Usercentrics (consent management, data privacy) via Camping agency in Barcelona. Engagement led by my former senior lead at Domestika — a second chapter of working together, this time on content built around clarity and intrigue for B2B SaaS company Usercentrics. Three courses live on the Usercentrics Academy, trusted by 3,000+ marketers worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="cv-live-link">View live →</a></p>
+            <p>Content strategy and brand projects for B2B SaaS clients, including Supply Logica (B2B SaaS, France) — developing the email marketing strategy that contributed to closing their first client — and Usercentrics (consent management, data privacy) via Camping agency in Barcelona. Engagement led by my former senior lead at Domestika — a second chapter of working together, this time on content built around clarity and intrigue for B2B SaaS company Usercentrics. Three courses live on the Usercentrics Academy, trusted by 3,000+ marketers worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="cv-live-link">View live →</a></p>
           </div>
 
           <div class="cv-job">
@@ -1684,7 +1697,7 @@ body {
               <span class="cv-job-dates">2019–2020</span>
             </div>
             <div class="cv-job-role" data-i18n="cv-role-rp">Marketing Copywriter</div>
-            <p>Built SEO content programme contributing to +500% YoY organic traffic growth. Produced ~40 articles — one on Amazon's fake reviews gained enough traction that Amazon's Head of Brand called to request it be taken down.</p>
+            <p>Built SEO content programme contributing to +500% YoY organic traffic growth. Produced 40+ articles — one on Amazon's fake reviews gained enough traction that Amazon's Head of Brand called to request it be taken down.</p>
           </div>
 
           <div class="cv-job">
@@ -1750,7 +1763,7 @@ body {
             </div>
             <div class="cv-meta-block">
               <span class="cv-meta-label" data-i18n="cv-tools-label">AI &amp; Tools</span>
-              <span class="cv-meta-value">Claude · ChatGPT · Perplexity · HubSpot · SEMrush · Screaming Frog · Figma</span>
+              <span class="cv-meta-value">Claude · ChatGPT · Perplexity · HubSpot · SEMrush · Screaming Frog · Figma · Adobe Suite</span>
             </div>
           </div>
         </div>
@@ -1793,8 +1806,8 @@ body {
         <div class="about-contact">
           <p class="about-contact-line" data-i18n="about-contact">Drop me a line.</p>
           <p class="about-contact-details">
-            <a href="mailto:treculelise@gmail.com" style="color:inherit; text-decoration:none; border-bottom: 0.5px solid rgba(212,83,126,0.3); padding-bottom:1px; transition: color 200ms ease, border-color 200ms ease;">treculelise@gmail.com</a><br>
-            <a href="https://linkedin.com/in/elise-trecul" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom: 0.5px solid rgba(212,83,126,0.3); padding-bottom:1px; transition: color 200ms ease, border-color 200ms ease;">linkedin.com/in/elise-trecul</a>
+            <a href="mailto:treculelise@gmail.com" class="pencil-link">treculelise@gmail.com</a><br>
+            <a href="https://linkedin.com/in/elise-trecul" target="_blank" rel="noopener" class="pencil-link">linkedin.com/in/elise-trecul</a>
           </p>
         </div>
       </div>
@@ -1804,10 +1817,12 @@ body {
 
         <p class="home-bridge" style="margin-bottom:2.5rem;" data-i18n="notes-intro">What it's like to work with me, in the words of people who have.</p>
 
-        <div class="kind-quote" style="margin-bottom:3rem;">
+        <div class="kind-quote featured" style="margin-bottom:3rem;">
           <blockquote style="font-size:18px;">"Three years later, she became an essential person in the team and the company. I witnessed her evolution as a professional — becoming the pro writer (that she already was) but with a strategic mind and a branding heart. She is more than a copywriter and is capable of defining 360° campaigns. I'm impressed by her leadership skills and her motivation to do great things."</blockquote>
           <p class="attribution"><strong>Alejandro Encinas</strong> <span style="color:var(--ink-faint); font-weight:400;">— Content Designer, Domestika · direct manager · 3 years</span></p>
         </div>
+
+        <hr style="border:none; border-top:0.5px solid var(--sheet-border); margin: 0 0 2.5rem; max-width:560px;">
 
         <div class="kind-quote">
           <blockquote>"Her data-driven approach and strategic thinking were invaluable assets to the team, and her ability to balance sticking to a brief while also pushing for something more elevated our work to new heights. If you're looking for a talented copywriter/brand strategist who's also capable of lighting up a room, look no further."</blockquote>
