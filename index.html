@@ -1413,6 +1413,78 @@ body {
     size: A4;
   }
 }
+
+/* ─── INLINE CARD VIDEOS ─────────────────────────────────────────────────── */
+.card-video-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1.25rem 0 0.5rem;
+}
+.card-video-item {
+  display: flex;
+  flex-direction: column;
+}
+.card-video-thumb-inline {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #1A1A1C;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 220ms ease;
+  border: 0.5px solid rgba(255,255,255,0.06);
+}
+.card-video-thumb-inline:hover { opacity: 0.8; }
+.card-video-play-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(212, 83, 126, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 200ms ease, background 200ms ease;
+}
+.card-video-thumb-inline:hover .card-video-play-btn {
+  transform: scale(1.1);
+  background: var(--rose);
+}
+.card-video-play-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: white;
+  margin-left: 2px;
+}
+.card-video-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 3px;
+  overflow: hidden;
+  display: none;
+  background: #000;
+}
+.card-video-player iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.card-video-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-top: 0.35rem;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 480px) {
+  .card-video-block { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -1594,20 +1666,26 @@ body {
             <span class="card-metric-num">8</span>
             <span class="card-metric-label" data-i18n="w2-metric">Languages · 6 channels · simultaneously</span>
           </div>
-          <div class="video-thumbs" style="margin-bottom:0.75rem;">
-            <div class="video-thumb" data-video="domestika_bf" tabindex="0" role="button" aria-label="Play Black Friday spot">
-              <svg class="video-play-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="0.75" opacity="0.4"/><path d="M5.5 4.5l5 2.5-5 2.5V4.5z" fill="var(--rose)"/></svg>
-              Black Friday spot
-            </div>
-            <div class="video-thumb" data-video="domestika_brand" tabindex="0" role="button" aria-label="Play Cyber Monday spot">
-              <svg class="video-play-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="0.75" opacity="0.4"/><path d="M5.5 4.5l5 2.5-5 2.5V4.5z" fill="var(--rose)"/></svg>
-              Cyber Monday spot
-            </div>
-          </div>
           <a href="#" class="card-link" data-expand>Read case study →</a>
           <div class="case-body">
             <p>Originated "Be bold, be colorful" as the creative direction for Domestika's 2022 global Black Friday campaign. Concept, visual narrative, and verbal identity — taken from brief to live across YouTube, Meta, TikTok, Google Display, CRM, and Affiliate, simultaneously, in 8 languages.</p>
             <p>Wrote the campaign copy, directed the visual approach, and coordinated execution with design and video teams. Cyber Monday extended the same creative system through the following weekend.</p>
+            <div class="card-video-block">
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="tS6Ons90EmM" role="button" tabindex="0" aria-label="Play Black Friday spot">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14"><path d="M1 1l10 6-10 6V1z"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label">Black Friday spot · 0:40</p>
+            </div>
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="ubL_0GIF63w" role="button" tabindex="0" aria-label="Play Cyber Monday spot">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14"><path d="M1 1l10 6-10 6V1z"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label">Cyber Monday spot · 0:40</p>
+            </div>
+          </div>
             <button class="case-close" data-collapse>Close ↑</button>
           </div>
         </div>
@@ -1639,20 +1717,26 @@ body {
             <span class="card-metric-num">$110M</span>
             <span class="card-metric-label" data-i18n="w4-metric">Series B · press kit &amp; narrative</span>
           </div>
-          <div class="video-thumbs" style="margin-bottom:0.75rem;">
-            <div class="video-thumb" data-video="domestika_course_trailer" tabindex="0" role="button" aria-label="Play Domestika Plus walkthrough">
-              <svg class="video-play-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="0.75" opacity="0.4"/><path d="M5.5 4.5l5 2.5-5 2.5V4.5z" fill="var(--rose)"/></svg>
-              Domestika Plus walkthrough
-            </div>
-            <div class="video-thumb" data-video="domestika_mini_trailer" tabindex="0" role="button" aria-label="Play course trailer">
-              <svg class="video-play-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="0.75" opacity="0.4"/><path d="M5.5 4.5l5 2.5-5 2.5V4.5z" fill="var(--rose)"/></svg>
-              Course trailer
-            </div>
-          </div>
           <a href="#" class="card-link" data-expand>Read case study →</a>
           <div class="case-body">
             <p>Contributed to formalising Domestika's brand voice during a period of rapid scale (8M+ users, 12 countries). Worked across the brand guide, buyer personas, messaging architecture, employer branding (LinkedIn Life), Domestika Plus product copy, and the $110M Series B press kit narrative.</p>
             <p>Wrote and directed product walkthroughs and creator course trailers — moving fluently between marketing campaigns, product messaging, and editorial.</p>
+            <div class="card-video-block">
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="hLD_nfhTyik" role="button" tabindex="0" aria-label="Play Domestika Plus walkthrough">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14"><path d="M1 1l10 6-10 6V1z"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label">Domestika Plus walkthrough · 0:55</p>
+            </div>
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="3Z936wtVSFk" role="button" tabindex="0" aria-label="Play Course trailer">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14"><path d="M1 1l10 6-10 6V1z"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label">Course trailer · 0:21</p>
+            </div>
+          </div>
             <button class="case-close" data-collapse>Close ↑</button>
           </div>
         </div>
@@ -2595,6 +2679,27 @@ body {
   }
 
 })();
+
+  /* ── Inline card video play ── */
+  document.querySelectorAll('.card-video-thumb-inline').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const vidId = thumb.dataset.videoId;
+      if (!vidId) return;
+      const item = thumb.closest('.card-video-item');
+      const player = item.querySelector('.card-video-player');
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + vidId + '?autoplay=1&rel=0';
+      iframe.allow = 'autoplay; encrypted-media; fullscreen';
+      iframe.allowFullscreen = true;
+      player.innerHTML = '';
+      player.appendChild(iframe);
+      player.style.display = 'block';
+      thumb.style.display = 'none';
+    });
+    thumb.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); thumb.click(); }
+    });
+  });
 </script>
 
 </body>
