@@ -4565,7 +4565,7 @@ body {
       'about-p7': '',
       'about-p8': '',
       'about-contact': 'Écrivez-moi.',
-      'about-location': 'Marseille, France · disponible en remote',,
+      'about-location': 'Marseille, France · disponible en remote',
       // CV Page - Experience
       'cv-freelance-para': 'Collaboration continue en stratégie de contenu, éditorial et brand messaging avec Usercentrics via l\'agence barcelonaise Camping. Retrouvailles professionnelles avec mon ancien Senior Lead chez Domestika autour de contenus pédagogiques à l\'intersection de la privacy, de l\'infrastructure marketing et de la mesure de données. Conception et rédaction de cours pour la Usercentrics Academy autour du marketing measurement, de Google Consent Mode et du server side tagging, avec un travail centré sur la transformation de sujets techniques complexes en contenus immédiatement compréhensibles et activables pour des équipes marketing. Plus de 3 000 marketers formés à travers le monde.',
       'cv-domestika-para': 'Pilotage de directions créatives et de campagnes internationales touchant plus de 8 millions d\'utilisateurs à travers 12 pays. Création de la plateforme de campagne mondiale Black Friday "Be bold, be colorful" déployée simultanément sur 6 canaux et en 8 langues. Participation au brand guide de Domestika, à l\'architecture de messaging, à l\'employer branding et aux communications liées à la Série B à 110 millions de dollars, en intervenant entre campagnes, messaging produit, éditorial et direction vidéo.',
@@ -4608,14 +4608,9 @@ body {
       'note-arran-en-quote': '"Elise was invaluable in getting me up to speed with the brand voice so that I could produce content in keeping with its style. It was a pleasure to work with her and would love the chance to do so again."',
       'note-mackenzie-en-role': 'Communications Executive, Domestika · colleague',
       'note-mackenzie-en-quote': '"Elise has taught me so much during our time together at Domestika. Not only is she talented when it comes to ideation, content creation, and branding, she\'s also an incredibly patient and understanding person who makes collaboration easy. A true asset to any team."',
-
-
-,
       // Discipline sheets - Navigation (FR)
       'disc-also-filed': 'également classé sous :',
-      'disc-back-home': '← Retour à l\'accueil',
-
-
+      'disc-back-home': '← Retour à l\'accueil'
     }
   };
 
@@ -4769,6 +4764,22 @@ body {
       cursorCircle.style.opacity = '0.6';
     }
   });
+
+  /* ── Language toggle ── */
+  function switchLang(lang) {
+    localStorage.setItem('lang', lang);
+    applyLang(lang);
+  }
+
+  document.getElementById('lang-en').addEventListener('click', () => switchLang('en'));
+  document.getElementById('lang-fr').addEventListener('click', () => switchLang('fr'));
+
+  // Load saved language on page load
+  window.addEventListener('load', () => {
+    const savedLang = localStorage.getItem('lang') || 'en';
+    applyLang(savedLang);
+  });
+
 </script>
 
 
