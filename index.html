@@ -997,15 +997,7 @@ body {
 .persistent-contact a:hover { color: var(--rose); }
 
 /* ─── LANGUAGE TOGGLE ───────────────────────────────────────────────── */
-.lang-toggle {
-  position: absolute;
-  top: 5.5rem;
-  right: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 20;
-}
+
 .lang-btn {
   font-family: 'Geist', sans-serif;
   font-size: 10px;
@@ -1402,17 +1394,7 @@ body {
 }
 
 /* ── EN/FR toggle: fixed pill ── */
-.lang-toggle {
-  position: fixed !important;
-  bottom: 1.5rem !important;
-  right: 1.5rem !important;
-  z-index: 200 !important;
-  background: var(--paper) !important;
-  border: 1px solid rgba(212, 83, 126, 0.55) !important;
-  border-radius: 999px !important;
-  padding: 6px 14px !important;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.14) !important;
-}
+
 
 /* ── Company logos ── */
 .company-logo {
@@ -1554,6 +1536,23 @@ body {
 
 /* ── Section labels 10px ── */
 .section-label { font-size: 10px; }
+
+.lang-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  z-index: 200;
+  background: var(--paper);
+  border: 1px solid rgba(212, 83, 126, 0.45);
+  border-radius: 999px;
+  padding: 5px 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  width: auto;
+  height: auto;
+}
 </style>
 </head>
 <body>
@@ -1620,7 +1619,7 @@ body {
         <!-- 1. WHO -->
         <div class="home-header">
           <h1 class="name-hero">Élise Trécul</h1>
-          <p class="home-subtitle" data-i18n="subtitle">Content &amp; Brand Strategist · B2B SaaS · Marseille</p>
+          <p class="home-subtitle" data-i18n="subtitle">Content &amp; Brand Strategist · Marseille</p>
         </div>
 
         <!-- 2. POINT OF VIEW -->
@@ -1659,24 +1658,24 @@ body {
 
         <div class="disc-pills" role="list">
           <span class="disc-pill" role="listitem" tabindex="0" data-disc="content-strategy" data-disc-target="content-strategy">
-            Content strategy
-            <span class="disc-micro">the architecture before the words</span>
+            <span data-i18n="pill-cs">Content strategy</span>
+            <span class="disc-micro" data-i18n="pill-cs-micro">the architecture before the words</span>
           </span>
           <span class="disc-pill" role="listitem" tabindex="0" data-disc="creative-direction" data-disc-target="creative-direction">
-            Creative direction
-            <span class="disc-micro">turning briefs into working creativity</span>
+            <span data-i18n="pill-cd">Creative direction</span>
+            <span class="disc-micro" data-i18n="pill-cd-micro">turning briefs into working creativity</span>
           </span>
           <span class="disc-pill" role="listitem" tabindex="0" data-disc="brand-messaging" data-disc-target="brand-messaging">
-            Brand messaging
-            <span class="disc-micro">giving brands a personality worth remembering</span>
+            <span data-i18n="pill-bm">Brand messaging</span>
+            <span class="disc-micro" data-i18n="pill-bm-micro">giving brands a personality worth remembering</span>
           </span>
           <span class="disc-pill" role="listitem" tabindex="0" data-disc="copywriting" data-disc-target="copywriting">
-            Copywriting
-            <span class="disc-micro">every line earns its place</span>
+            <span data-i18n="pill-cw">Copywriting</span>
+            <span class="disc-micro" data-i18n="pill-cw-micro">every line earns its place</span>
           </span>
           <span class="disc-pill" role="listitem" tabindex="0" data-disc="video" data-disc-target="video">
-            Video
-            <span class="disc-micro">when the idea needs to move</span>
+            <span data-i18n="pill-v">Video</span>
+            <span class="disc-micro" data-i18n="pill-v-micro">when the idea needs to move</span>
           </span>
         </div>
 
@@ -1716,13 +1715,13 @@ body {
             <span class="card-metric-num">+500%</span>
             <span class="card-metric-label" data-i18n="w1-metric">YoY organic traffic growth</span>
           </div>
-          <span class="card-support" data-i18n="w1-support">~40 articles published · still ranking today</span>
+          <span class="card-support" data-i18n="w1-support">40+ articles published · still ranking today</span>
           <a href="#" class="card-link" data-expand data-i18n="w-cta-read">Take a look →</a>
           <div class="case-body">
-            <p>Built an SEO content programme from scratch for Red Points, a B2B SaaS brand protection platform targeting IP managers and legal teams. Starting with keyword research via Screaming Frog and SEMrush, I identified high-intent topics across trademark enforcement, brand protection, and IP law.</p>
-            <p>Produced ~40 long-form articles — written to rank and written to be read. The work contributed to 500% YoY organic traffic growth. One article on Amazon's fake review problem gained enough traction that Amazon's Head of Brand called Red Points directly to request it be taken down.</p>
-            <p>Articles remain indexed and ranking today.</p>
-            <button class="case-close" data-collapse>Close ↑</button>
+            <p data-i18n="w1-body1">Built an SEO content programme from scratch for Red Points, a B2B SaaS brand protection platform targeting IP managers and legal teams. Starting with keyword research via Screaming Frog and SEMrush, I identified high-intent topics across trademark enforcement, brand protection, and IP law.</p>
+            <p data-i18n="w1-body2">Produced more than 40 long-form articles — written to rank and written to be read. The work contributed to 500% YoY organic traffic growth. One article on Amazon's fake review problem gained enough traction that Amazon's Head of Brand called Red Points directly to request it be taken down.</p>
+            <p data-i18n="w1-body3">Articles remain indexed and ranking today.</p>
+            <button class="case-close" data-collapse data-i18n="card-close">Close ↑</button>
           </div>
         </div>
 
@@ -1747,8 +1746,8 @@ body {
           </div>
           <a href="#" class="card-link" data-expand>Read case study →</a>
           <div class="case-body">
-            <p>Originated "Be bold, be colorful" as the creative direction for Domestika's 2022 global Black Friday campaign. Concept, visual narrative, and verbal identity — taken from brief to live across YouTube, Meta, TikTok, Google Display, CRM, and Affiliate, simultaneously, in 8 languages.</p>
-            <p>Wrote the campaign copy, directed the visual approach, and coordinated execution with design and video teams. Cyber Monday extended the same creative system through the following weekend.</p>
+            <p data-i18n="w2-body1">Originated "Be bold, be colorful" as the creative direction for Domestika's 2022 global Black Friday campaign. Concept, visual narrative, and verbal identity — taken from brief to live across YouTube, Meta, TikTok, Google Display, CRM, and Affiliate, simultaneously, in 8 languages.</p>
+            <p data-i18n="w2-body2">Wrote the campaign copy, directed the visual approach, and coordinated execution with design and video teams. Cyber Monday extended the same creative system through the following weekend.</p>
             <button class="case-close" data-collapse>Close ↑</button>
           </div>
         </div>
@@ -1764,10 +1763,10 @@ body {
           </div>
           <a href="#" class="card-link" data-expand>Read case study →</a>
           <div class="case-body">
-            <p>Engagement led by my former senior lead at Domestika — a second chapter of working together, this time on content built around clarity and intrigue for B2B SaaS company Usercentrics, via Camping agency in Barcelona.</p>
-            <p>Developed and wrote three privacy-led education courses for the Usercentrics Academy, working across course architecture, scripts, and surrounding editorial. The programme covers marketing measurement, Google Consent Mode, and server-side tagging — translating dense, technical, regulation-driven material into accessible content for digital marketers post-GDPR.</p>
-            <p>Trusted by 3,000+ marketers worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="case-live-link">View the Marketing Measurement course →</a></p>
-            <button class="case-close" data-collapse>Close ↑</button>
+            <p data-i18n="w3-body1">Engagement led by my former senior lead at Domestika — a second chapter of working together, this time on content built around clarity and intrigue for B2B SaaS company Usercentrics, via Camping agency in Barcelona.</p>
+            <p data-i18n="w3-body2">Developed and wrote three privacy-led education courses for the Usercentrics Academy, working across course architecture, scripts, and surrounding editorial. The programme covers marketing measurement, Google Consent Mode, and server-side tagging — translating dense, technical, regulation-driven material into accessible content for digital marketers post-GDPR.</p>
+            <p data-i18n="w3-body3">Trusted by 3,000+ marketers worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="case-live-link">View the Marketing Measurement course →</a></p>
+            <button class="case-close" data-collapse data-i18n="card-close">Close ↑</button>
           </div>
         </div>
 
@@ -1792,9 +1791,9 @@ body {
           </div>
           <a href="#" class="card-link" data-expand>Read case study →</a>
           <div class="case-body">
-            <p>Contributed to formalising Domestika's brand voice during a period of rapid scale (8M+ users, 12 countries). Worked across the brand guide, buyer personas, messaging architecture, employer branding (LinkedIn Life), Domestika Plus product copy, and the $110M Series B press kit narrative.</p>
-            <p>Wrote and directed product walkthroughs and creator course trailers — moving fluently between marketing campaigns, product messaging, and editorial.</p>
-            <button class="case-close" data-collapse>Close ↑</button>
+            <p data-i18n="w4-body1">Contributed to formalising Domestika's brand voice during a period of rapid scale (8M+ users, 12 countries). Worked across the brand guide, buyer personas, messaging architecture, employer branding (LinkedIn Life), Domestika Plus product copy, and the $110M Series B press kit narrative.</p>
+            <p data-i18n="w4-body2">Wrote and directed product walkthroughs and creator course trailers — moving fluently between marketing campaigns, product messaging, and editorial.</p>
+            <button class="case-close" data-collapse data-i18n="card-close">Close ↑</button>
           </div>
         </div>
       </div>
@@ -1838,7 +1837,7 @@ body {
               <span class="cv-job-dates">2019–2020</span>
             </div>
             <div class="cv-job-role" data-i18n="cv-role-rp">Marketing Copywriter</div>
-            <p>Built SEO content programme contributing to +500% YoY organic traffic growth. Produced ~40 articles — one on Amazon's fake reviews gained enough traction that Amazon's Head of Brand called to request it be taken down.</p>
+            <p>Built SEO content programme contributing to +500% YoY organic traffic growth. Produced 40+ articles — one on Amazon's fake reviews gained enough traction that Amazon's Head of Brand called to request it be taken down.</p>
           </div>
 
           <div class="cv-job">
@@ -1847,7 +1846,7 @@ body {
               <span class="cv-job-dates">2018–2019</span>
             </div>
             <div class="cv-job-role" data-i18n="cv-role-termix">Communication &amp; Content</div>
-            <p>Brand content and digital campaigns for the French market.</p>
+            <p data-i18n="cv-termix-para">Produced brand content and digital campaigns for the French market across product communication, editorial, and social media.</p>
           </div>
         </div>
 
@@ -1858,29 +1857,29 @@ body {
             <div>
               <div class="skills-column-label" data-i18n="cv-what">What I do</div>
               <ul class="skills-list">
-                <li>Content strategy &amp; architecture</li>
-                <li>Brand messaging &amp; voice</li>
-                <li>Creative direction</li>
-                <li>Copywriting &amp; UX writing</li>
-                <li>Campaign development</li>
-                <li>Video scripting &amp; direction</li>
-                <li>SEO (SEMrush, Screaming Frog)</li>
-                <li>AI-assisted content workflows</li>
+                <li data-i18n="cv-s1">Content strategy &amp; architecture</li>
+                <li data-i18n="cv-s2">Brand messaging &amp; voice</li>
+                <li data-i18n="cv-s3">Creative direction</li>
+                <li data-i18n="cv-s4">Copywriting &amp; UX writing</li>
+                <li data-i18n="cv-s5">Campaign development</li>
+                <li data-i18n="cv-s6">Video scripting &amp; direction</li>
+                <li data-i18n="cv-s7">SEO (SEMrush, Screaming Frog)</li>
+                <li data-i18n="cv-s8">AI-assisted content workflows</li>
               </ul>
             </div>
             <div>
               <div class="skills-column-label" data-i18n="cv-approach">How I approach it</div>
               <ul class="skills-list">
-                <li>Grounded in the reader</li>
-                <li>Grounded in the reader</li>
-                <li>Calm under pressure</li>
-                <li>Strong editorial judgment</li>
-                <li>Comfortable across functions and disciplines</li>
-                <li>Fluent across cultures and languages</li>
-                <li>Honest about what I do not know</li>
-                <li>Structured without becoming rigid</li>
-                <li>Curious about systems, data, and behaviour</li>
-                <li>Sharpened by thoughtful feedback</li>
+                <li data-i18n="cv-a1">Grounded in the reader</li>
+                <li data-i18n="cv-a1">Grounded in the reader</li>
+                <li data-i18n="cv-a2">Calm under pressure</li>
+                <li data-i18n="cv-a3">Strong editorial judgment</li>
+                <li data-i18n="cv-a4">Comfortable across functions and disciplines</li>
+                <li data-i18n="cv-a5">Fluent across cultures and languages</li>
+                <li data-i18n="cv-a8">Honest about what I do not know</li>
+                <li data-i18n="cv-a6">Structured without becoming rigid</li>
+                <li data-i18n="cv-a7">Curious about systems, data, and behaviour</li>
+                <li data-i18n="cv-a9">Sharpened by thoughtful feedback</li>
               </ul>
             </div>
           </div>
@@ -1960,23 +1959,23 @@ body {
         <p class="home-bridge" style="margin-bottom:2.5rem;" data-i18n="notes-intro">What it's like to work with me, in the words of people who have.</p>
 
         <div class="kind-quote" style="margin-bottom:3rem;">
-          <blockquote style="font-size:18px;">"Three years later, she became an essential person in the team and the company. I witnessed her evolution as a professional — becoming the pro writer (that she already was) but with a strategic mind and a branding heart. She is more than a copywriter and is capable of defining 360° campaigns. I'm impressed by her leadership skills and her motivation to do great things."</blockquote>
-          <p class="attribution"><strong>Alejandro Encinas</strong> <span style="color:var(--ink-faint); font-weight:400;">— Content Designer, Domestika · direct manager · 3 years</span></p>
+          <blockquote style="font-size:18px;" data-i18n="note-alejandro-quote">"Three years later, she became an essential person in the team and the company. I witnessed her evolution as a professional — becoming the pro writer (that she already was) but with a strategic mind and a branding heart. She is more than a copywriter and is capable of defining 360° campaigns. I'm impressed by her leadership skills and her motivation to do great things."</blockquote>
+          <p class="attribution"><strong>Alejandro Encinas</strong> <span style="color:var(--ink-faint); font-weight:400;" data-i18n="note-alejandro-role">— Content Designer, Domestika · direct manager · 3 years</span></p>
         </div>
 
         <div class="kind-quote">
-          <blockquote>"Her data-driven approach and strategic thinking were invaluable assets to the team, and her ability to balance sticking to a brief while also pushing for something more elevated our work to new heights. If you're looking for a talented copywriter/brand strategist who's also capable of lighting up a room, look no further."</blockquote>
-          <p class="attribution"><strong>Cati Gayà Valdueza</strong> <span style="color:var(--ink-faint); font-weight:400;">— Lead Creative Copywriter, Domestika · peer</span></p>
+          <blockquote data-i18n="note-cati-quote">"Her data-driven approach and strategic thinking were invaluable assets to the team, and her ability to balance sticking to a brief while also pushing for something more elevated our work to new heights. If you're looking for a talented copywriter/brand strategist who's also capable of lighting up a room, look no further."</blockquote>
+          <p class="attribution"><strong>Cati Gayà Valdueza</strong> <span style="color:var(--ink-faint); font-weight:400;" data-i18n="note-cati-role">— Lead Creative Copywriter, Domestika · peer</span></p>
         </div>
 
         <div class="kind-quote">
-          <blockquote>"Elise was invaluable in getting me up to speed with the brand voice so that I could produce content in keeping with its style. It was a pleasure to work with her and would love the chance to do so again."</blockquote>
-          <p class="attribution"><strong>Arran Wallace</strong> <span style="color:var(--ink-faint); font-weight:400;">— Marketing Manager, Giesecke+Devrient · direct report at Domestika</span></p>
+          <blockquote data-i18n="note-arran-quote">"Elise was invaluable in getting me up to speed with the brand voice so that I could produce content in keeping with its style. It was a pleasure to work with her and would love the chance to do so again."</blockquote>
+          <p class="attribution"><strong>Arran Wallace</strong> <span style="color:var(--ink-faint); font-weight:400;" data-i18n="note-arran-role">— Marketing Manager, Giesecke+Devrient · direct report at Domestika</span></p>
         </div>
 
         <div class="kind-quote">
-          <blockquote>"Elise has taught me so much during our time together at Domestika. Not only is she talented when it comes to ideation, content creation, and branding, she's also an incredibly patient and understanding person who makes collaboration easy. A true asset to any team."</blockquote>
-          <p class="attribution"><strong>Mackenzie Orrock</strong> <span style="color:var(--ink-faint); font-weight:400;">— Communications Executive, Domestika · colleague</span></p>
+          <blockquote data-i18n="note-mackenzie-quote">"Elise has taught me so much during our time together at Domestika. Not only is she talented when it comes to ideation, content creation, and branding, she's also an incredibly patient and understanding person who makes collaboration easy. A true asset to any team."</blockquote>
+          <p class="attribution"><strong>Mackenzie Orrock</strong> <span style="color:var(--ink-faint); font-weight:400;" data-i18n="note-mackenzie-role">— Communications Executive, Domestika · colleague</span></p>
         </div>
 
         <a class="kind-words-footer-link" href="https://www.linkedin.com/in/elise-trecul/details/recommendations/" target="_blank" rel="noopener" data-i18n="notes-footer">See all 11 on LinkedIn →</a>
@@ -2036,14 +2035,7 @@ body {
                 <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
               </div>
               <div class="card-video-player"></div>
-              <p class="card-video-label">Black Friday spot</p>
-            </div>
-            <div class="card-video-item">
-              <div class="card-video-thumb-inline" data-video-id="ubL_0GIF63w" role="button" tabindex="0">
-                <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
-              </div>
-              <div class="card-video-player"></div>
-              <p class="card-video-label">Cyber Monday spot</p>
+              <p class="card-video-label" data-i18n="disc-cd-bf-label">Black Friday spot</p>
             </div>
           </div>
         </div>
@@ -2051,11 +2043,21 @@ body {
         <div class="disc-item">
           <div class="disc-item-title" data-i18n="disc-cd-t2">Domestika · September campaign</div>
           <p data-i18n="disc-cd-p2">Developed "Fill your routine with creativity" as a seasonal campaign platform designed to position Domestika as part of everyday creative life rather than a one off purchase moment. The work focused on building a softer, more habitual relationship to creativity through editorial storytelling, visual consistency, and campaign messaging rooted in repetition, rhythm, and creative identity.</p>
+          <p style="margin-top:0.75rem;font-family:'Geist',sans-serif;font-size:11px;font-style:italic;color:var(--ink-faint);" data-i18n="disc-cd-sept-note">Image coming soon</p>
         </div>
 
         <div class="disc-item">
           <div class="disc-item-title" data-i18n="disc-cd-t3">Domestika · Cyber Monday</div>
           <p data-i18n="disc-cd-p3">Creative continuation of the Black Friday campaign system into Cyber Monday, maintaining the same editorial world while creating enough variation to preserve momentum and freshness across a second commercial wave. The challenge was proving the concept could stretch across multiple activations without losing clarity, recognisability, or energy.</p>
+          <div class="card-video-block">
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="ubL_0GIF63w" role="button" tabindex="0">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label" data-i18n="disc-cd-cm-label">Cyber Monday spot</p>
+            </div>
+          </div>
         </div>
 
         <div class="disc-also-filed">
@@ -2068,7 +2070,7 @@ body {
         </div>
       </div>
 
-      <!-- Brand Messaging --><!-- Brand Messaging -->
+      <!-- Brand Messaging --><!-- Brand Messaging --><!-- Brand Messaging -->
       <div class="disc-sheet" id="disc-brand-messaging" aria-label="Brand messaging sheet">
         <button class="disc-back-nav interactive" data-back="brand-messaging">← back</button>
         <span class="section-label disc-name" data-i18n="disc-bm-name">Brand Messaging</span>
@@ -2082,6 +2084,15 @@ body {
         <div class="disc-item">
           <div class="disc-item-title" data-i18n="disc-bm-t2">Domestika Plus messaging framework</div>
           <p data-i18n="disc-bm-p2">Developed the messaging and communication principles for Domestika Plus as the platform expanded into premium subscription education. Worked across positioning, onboarding communication, product messaging, and campaign touchpoints to maintain a coherent premium identity throughout the user experience. The work focused on clarifying the value narrative around membership, creative ambition, and access while preserving consistency across a rapidly growing ecosystem.</p>
+          <div class="card-video-block">
+            <div class="card-video-item">
+              <div class="card-video-thumb-inline" data-video-id="hLD_nfhTyik" role="button" tabindex="0">
+                <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
+              </div>
+              <div class="card-video-player"></div>
+              <p class="card-video-label" data-i18n="disc-bm-dom-video">Domestika Plus walkthrough</p>
+            </div>
+          </div>
         </div>
 
         <div class="disc-item">
@@ -2099,7 +2110,7 @@ body {
         </div>
       </div>
 
-      <!-- Copywriting --><!-- Copywriting -->
+      <!-- Copywriting --><!-- Copywriting --><!-- Copywriting -->
       <div class="disc-sheet" id="disc-copywriting" aria-label="Copywriting sheet">
         <button class="disc-back-nav interactive" data-back="copywriting">← back</button>
         <span class="section-label disc-name" data-i18n="disc-cw-name">Copywriting</span>
@@ -2589,7 +2600,7 @@ body {
   const translations = {
     fr: {
       // Meta
-      'subtitle': 'Responsable Contenu &amp; Marque · B2B SaaS · Marseille',
+      'subtitle': 'Responsable Contenu &amp; Marque · Marseille',
       'tab-home': 'Accueil',
       'tab-work': 'Projets',
       'tab-cv': 'CV',
@@ -2633,7 +2644,7 @@ body {
       'work-entry': 'Quand le message est juste, tout s\'enchaîne :',
       'w1-insight': 'Transformer une scale-up en référence du secteur sur la protection de marque.',
       'w1-metric': 'Croissance du trafic organique',
-      'w1-support': '~40 articles publiés · toujours référencés aujourd\'hui',
+      'w1-support': '40+ articles publiés · toujours référencés aujourd\'hui',
       'w2-insight': 'Casser les codes du secteur. Black Friday en couleurs.',
       'w2-metric': 'Langues · 6 canaux · simultanément',
       'w3-insight': 'La data privacy, sans l\'ennui.',
@@ -2710,7 +2721,7 @@ body {
       'disc-cw-tagline': 'chaque mot doit mériter sa place',
       'disc-cw-t1': 'Red Points · SEO &amp; éditorial',
       'disc-cw-p1': 'Conception et rédaction d\'un programme de contenu SEO long format pour Red Points, à destination des responsables PI et des équipes juridiques, autour de la protection des marques, de la contrefaçon et du droit des marques. Rédaction de plus de 40 articles pensés autant pour performer dans les moteurs de recherche que pour être réellement lus, contribuant à une croissance de 500 % du trafic organique en un an.',
-      'disc-cw-t2': 'Domestika · Écriture produit &amp; marque',
+      'disc-cw-t2': 'Domestika · Rédaction produit et marque',
       'disc-cw-p2': 'Intervention sur les contenus produit, l\'UX writing, les campagnes et l\'éditorial de l\'une des plus grandes plateformes européennes d\'apprentissage créatif durant une phase de forte croissance internationale. Contribution au positionnement de Domestika Plus, aux lancements de cours créateurs, aux parcours d\'onboarding et aux contenus de marque vus par plus de 8 millions d\'utilisateurs.',
       'disc-cw-t3': 'Usercentrics · Contenu pédagogique',
       'disc-cw-p3': 'Conception et rédaction de contenus pédagogiques autour du marketing measurement, de Google Consent Mode et du server side tagging pour la Usercentrics Academy. L\'enjeu consistait à transformer des sujets techniques en contenus immédiatement compréhensibles et activables pour des équipes marketing, sans en effacer la complexité sous-jacente.',
@@ -2751,6 +2762,61 @@ body {
       'about-p5': 'En 2023, l\'IA a profondément transformé notre manière de travailler. J\'ai choisi de l\'aborder comme j\'aborde la communication : comme un outil dont la valeur dépend entièrement de la qualité de la réflexion derrière. Ce qui a commencé comme une curiosité est rapidement devenu une partie intégrante de mon processus.',
       'about-p6': 'Aujourd\'hui, je travaille à l\'endroit où se rencontrent instinct éditorial, cohérence de marque et nouveaux outils. Ce qui m\'intéresse, c\'est d\'aider les équipes à rester claires et alignées à mesure qu\'elles changent d\'échelle.',
       'about-pullquote': 'Quand le message est juste, tout le reste suit.',
+,
+
+      // ── Work card case body FR ──────────────────────────────────────────────
+      'w-cta-read': 'Lire →',
+      'card-close': 'Fermer ↑',
+      'w1-body1': 'Conception d\'une architecture de contenu SEO pour Red Points, une plateforme B2B SaaS spécialisée dans la protection des marques, ciblant les responsables PI et les équipes juridiques. À partir d\'un travail de recherche de mots-clés mené avec Screaming Frog et SEMrush, identification des sujets à forte intention autour de la lutte contre la contrefaçon et du droit de la propriété intellectuelle.',
+      'w1-body2': 'Rédaction de plus de 40 articles long format — pensés autant pour performer dans les moteurs de recherche que pour être réellement lus. Ce travail a contribué à une croissance de 500 % du trafic organique. L\'un des articles, consacré au problème des faux avis sur Amazon, a généré une visibilité suffisante pour que le Head of Brand d\'Amazon contacte directement Red Points afin d\'en demander le retrait.',
+      'w1-body3': 'Ces articles sont encore indexés et bien positionnés aujourd\'hui.',
+      'w2-body1': 'Création de "Be bold, be colorful" comme direction créative de la campagne Black Friday mondiale 2022 de Domestika. Concept, narration visuelle et identité verbale — du brief jusqu\'au lancement sur YouTube, Meta, TikTok, Google Display, CRM et Affiliate, simultanément en 8 langues.',
+      'w2-body2': 'Rédaction des contenus de campagne, direction de l\'approche visuelle et coordination de l\'exécution avec les équipes design et vidéo. Cyber Monday a prolongé le même système créatif sur l\'ensemble du week-end suivant.',
+      'w3-body1': 'Engagement initié par mon ancien Senior Lead chez Domestika — un second chapitre de collaboration, cette fois autour de contenus pédagogiques pour Usercentrics via l\'agence Camping à Barcelone.',
+      'w3-body2': 'Développement et rédaction de trois cours pour la Usercentrics Academy autour de la mesure marketing, de Google Consent Mode et du server side tagging, en travaillant sur l\'architecture des cours, les scripts et les contenus éditoriaux.',
+      'w3-body3': 'Plus de 3 000 marketers formés dans le monde.',
+      'w4-body1': 'Participation à la formalisation de la voix de marque de Domestika durant une phase de forte croissance internationale (8 millions d\'utilisateurs, 12 pays). Intervention sur le brand guide, les buyer personas, l\'architecture de messaging, l\'employer branding (LinkedIn Life), le copy produit Domestika Plus et le récit du press kit Série B à 110 millions de dollars.',
+      'w4-body2': 'Rédaction et direction de product walkthroughs et de trailers de cours créateurs — en naviguant avec fluidité entre campagnes marketing, storytelling produit et narration éditoriale.',
+
+      // ── Pill labels FR ──────────────────────────────────────────────────────
+      'pill-cs': 'Stratégie de contenu',
+      'pill-cs-micro': 'poser l\'architecture avant les mots',
+      'pill-cd': 'Direction créative',
+      'pill-cd-micro': 'transformer un brief en monde créatif',
+      'pill-bm': 'Messaging de marque',
+      'pill-bm-micro': 'révéler la vraie voix d\'une marque',
+      'pill-cw': 'Rédaction',
+      'pill-cw-micro': 'chaque mot doit mériter sa place',
+      'pill-v': 'Vidéo',
+      'pill-v-micro': 'donner vie à une idée',
+
+      // ── CV skills FR ────────────────────────────────────────────────────────
+      'cv-what': 'Ce que je fais',
+      'cv-approach': 'Comment je l\'aborde',
+      'cv-s1': 'Stratégie et architecture de contenu',
+      'cv-s2': 'Brand messaging &amp; voix de marque',
+      'cv-s3': 'Direction créative',
+      'cv-s4': 'Copywriting &amp; UX writing',
+      'cv-s5': 'Développement de campagnes',
+      'cv-s6': 'Écriture et direction vidéo',
+      'cv-s7': 'SEO (SEMrush, Screaming Frog)',
+      'cv-s8': 'Workflows de contenu assistés par IA',
+      'cv-a1': 'Toujours ancrée dans le lecteur',
+      'cv-a2': 'Calme sous pression',
+      'cv-a3': 'Jugement éditorial fort',
+      'cv-a4': 'À l\'aise entre fonctions et disciplines',
+      'cv-a5': 'Fluide entre cultures et langues',
+      'cv-a6': 'Structurée sans devenir rigide',
+      'cv-a7': 'Curieuse des systèmes, des données et des comportements',
+      'cv-a8': 'Honnête sur ce que je ne sais pas encore',
+      'cv-a9': 'Affinée par les retours exigeants',
+
+      // ── CD extra keys FR ───────────────────────────────────────────────────
+      'disc-cd-sept-note': 'Image à venir',
+      'disc-cd-bf-label': 'Spot Black Friday →',
+      'disc-cd-cm-label': 'Spot Cyber Monday →',
+      'disc-bm-dom-video': 'Domestika Plus — produit →',
+
 
     }
   };
