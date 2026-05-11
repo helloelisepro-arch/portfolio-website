@@ -1535,9 +1535,13 @@ body {
 .company-logo {
   height: 16px;
   width: auto;
-  filter: grayscale(1) brightness(0);
-  opacity: 0.6;
+  filter: grayscale(1) brightness(0.3) contrast(1.2);
+  opacity: 0.7;
   transition: opacity 200ms ease;
+}
+.company-logo:hover {
+  opacity: 0.9;
+  filter: grayscale(1) brightness(0.5) contrast(1.2);
 }
 .company-logo:hover {
   opacity: 0.85;
@@ -3365,9 +3369,13 @@ body {
 .company-logo {
   height: 16px;
   width: auto;
-  filter: grayscale(1) brightness(0);
-  opacity: 0.6;
+  filter: grayscale(1) brightness(0.3) contrast(1.2);
+  opacity: 0.7;
   transition: opacity 200ms ease;
+}
+.company-logo:hover {
+  opacity: 0.9;
+  filter: grayscale(1) brightness(0.5) contrast(1.2);
 }
 .company-logo:hover {
   opacity: 0.85;
@@ -4652,10 +4660,7 @@ body {
     }
 
     // Toggle buttons
-    document.getElementById('lang-en').addEventListener('click', () => {
-      applyLang('en');
-      hideBanner();
-    });
+    document.
     document.getElementById('lang-fr').addEventListener('click', () => {
       applyLang('fr');
       hideBanner();
