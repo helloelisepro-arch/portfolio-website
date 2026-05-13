@@ -1400,12 +1400,13 @@ body {
 .company-logo {
   height: 16px;
   width: auto;
-  filter: grayscale(1) brightness(0);
-  opacity: 0.55;
+  filter: grayscale(1) contrast(1.2);
+  opacity: 0.6;
   mix-blend-mode: multiply;
   transition: opacity 200ms ease;
   display: block;
 }
+.company-logo:hover { opacity: 0.9; }
 .company-logo:hover { opacity: 0.8; }
 
 /* ── Pill permanent arrow ── */
@@ -1604,12 +1605,7 @@ body {
         </span>
       </div>
 
-      <!-- Language toggle -->
-      <div class="lang-toggle" aria-label="Language switcher">
-        <button class="lang-btn active" id="lang-en" aria-pressed="true">EN</button>
-        <span class="lang-sep">·</span>
-        <button class="lang-btn" id="lang-fr" aria-pressed="false">FR</button>
-      </div>
+
 
       <!-- HOME TAB ──────────────────────────────────────────────── -->
       <div id="tab-home" class="tab-content">
@@ -1744,11 +1740,11 @@ body {
               Cyber Monday spot
             </div>
           </div>
-          <a href="#" class="card-link" data-expand>Read case study →</a>
+          <a href="#" class="card-link" data-expand data-i18n="w-cta-read">Read case study →</a>
           <div class="case-body">
             <p data-i18n="w2-body1">Originated "Be bold, be colorful" as the creative direction for Domestika's 2022 global Black Friday campaign. Concept, visual narrative, and verbal identity — taken from brief to live across YouTube, Meta, TikTok, Google Display, CRM, and Affiliate, simultaneously, in 8 languages.</p>
             <p data-i18n="w2-body2">Wrote the campaign copy, directed the visual approach, and coordinated execution with design and video teams. Cyber Monday extended the same creative system through the following weekend.</p>
-            <button class="case-close" data-collapse>Close ↑</button>
+            <button class="case-close" data-collapse data-i18n="card-close">Close ↑</button>
           </div>
         </div>
 
@@ -1761,7 +1757,7 @@ body {
             <span class="card-metric-num">3,000+</span>
             <span class="card-metric-label" data-i18n="w3-metric">Marketers reached · 3 courses live</span>
           </div>
-          <a href="#" class="card-link" data-expand>Read case study →</a>
+          <a href="#" class="card-link" data-expand data-i18n="w-cta-read">Read case study →</a>
           <div class="case-body">
             <p data-i18n="w3-body1">Engagement led by my former senior lead at Domestika — a second chapter of working together, this time on content built around clarity and intrigue for B2B SaaS company Usercentrics, via Camping agency in Barcelona.</p>
             <p data-i18n="w3-body2">Developed and wrote three privacy-led education courses for the Usercentrics Academy, working across course architecture, scripts, and surrounding editorial. The programme covers marketing measurement, Google Consent Mode, and server-side tagging — translating dense, technical, regulation-driven material into accessible content for digital marketers post-GDPR.</p>
@@ -1789,7 +1785,7 @@ body {
               Course trailer
             </div>
           </div>
-          <a href="#" class="card-link" data-expand>Read case study →</a>
+          <a href="#" class="card-link" data-expand data-i18n="w-cta-read">Read case study →</a>
           <div class="case-body">
             <p data-i18n="w4-body1">Contributed to formalising Domestika's brand voice during a period of rapid scale (8M+ users, 12 countries). Worked across the brand guide, buyer personas, messaging architecture, employer branding (LinkedIn Life), Domestika Plus product copy, and the $110M Series B press kit narrative.</p>
             <p data-i18n="w4-body2">Wrote and directed product walkthroughs and creator course trailers — moving fluently between marketing campaigns, product messaging, and editorial.</p>
@@ -1819,7 +1815,7 @@ body {
               <span class="cv-job-dates" data-i18n="cv-present">2023–Present</span>
             </div>
             <div class="cv-job-role" data-i18n="cv-role-freelance">Content Strategy &amp; Brand</div>
-            <p data-i18n="cv-freelance-para">Ongoing content strategy, editorial, and brand messaging collaboration with Usercentrics through Barcelona based agency Camping. Reconnected with my former Senior Lead at Domestika to develop educational content at the intersection of privacy, marketing infrastructure, and data measurement. Developed and wrote courses for the Usercentrics Academy covering marketing measurement, Google Consent Mode, and server side tagging, helping translate technically dense subjects into communication digital marketers could immediately understand and apply. More than 3,000 marketers trained worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="cv-live-link">View live →</a></p>
+            <p data-i18n="cv-freelance-para">Ongoing content strategy, editorial, and brand messaging collaboration with Usercentrics through Barcelona based agency Camping. Reconnected with my former Senior Lead at Domestika to develop educational content at the intersection of privacy, marketing infrastructure, and data measurement. Developed and wrote courses for the Usercentrics Academy covering marketing measurement, Google Consent Mode, and server side tagging, helping translate technically dense subjects into communication digital marketers could immediately understand and apply. More than 3,000 marketers trained worldwide. <a href="https://courses.usercentrics.com/course/marketing-measurement" target="_blank" rel="noopener" class="cv-live-link" data-i18n="cv-view-live">View live →</a></p>
           </div>
 
           <div class="cv-job">
@@ -1837,7 +1833,7 @@ body {
               <span class="cv-job-dates">2019–2020</span>
             </div>
             <div class="cv-job-role" data-i18n="cv-role-rp">Marketing Copywriter</div>
-            <p>Built SEO content programme contributing to +500% YoY organic traffic growth. Produced 40+ articles — one on Amazon's fake reviews gained enough traction that Amazon's Head of Brand called to request it be taken down.</p>
+            <p data-i18n="cv-rp-para">Built SEO content programme contributing to +500% YoY organic traffic growth. Produced 40+ articles — one on Amazon's fake reviews gained enough traction that Amazon's Head of Brand called to request it be taken down.</p>
           </div>
 
           <div class="cv-job">
@@ -1985,7 +1981,7 @@ body {
 
       <!-- Content Strategy -->
       <div class="disc-sheet" id="disc-content-strategy" aria-label="Content strategy sheet">
-        <button class="disc-back-nav interactive" data-back="content-strategy">← back</button>
+        <button class="disc-back-nav interactive" data-back="content-strategy" data-i18n="disc-back-nav">← back</button>
         <span class="section-label disc-name" data-i18n="disc-cs-name">Content Strategy</span>
         <span class="disc-tagline" data-i18n="disc-cs-tagline">the architecture before the words</span>
 
@@ -2017,7 +2013,7 @@ body {
 
       <!-- Creative Direction --><!-- Creative Direction -->
       <div class="disc-sheet" id="disc-creative-direction" aria-label="Creative direction sheet">
-        <button class="disc-back-nav interactive" data-back="creative-direction">← back</button>
+        <button class="disc-back-nav interactive" data-back="creative-direction" data-i18n="disc-back-nav">← back</button>
         <span class="section-label disc-name" data-i18n="disc-cd-name">Creative Direction</span>
         <span class="disc-tagline" data-i18n="disc-cd-tagline">building creative systems that survive scale</span>
 
@@ -2072,7 +2068,7 @@ body {
 
       <!-- Brand Messaging --><!-- Brand Messaging --><!-- Brand Messaging -->
       <div class="disc-sheet" id="disc-brand-messaging" aria-label="Brand messaging sheet">
-        <button class="disc-back-nav interactive" data-back="brand-messaging">← back</button>
+        <button class="disc-back-nav interactive" data-back="brand-messaging" data-i18n="disc-back-nav">← back</button>
         <span class="section-label disc-name" data-i18n="disc-bm-name">Brand Messaging</span>
         <span class="disc-tagline" data-i18n="disc-bm-tagline">giving brands a personality worth remembering</span>
 
@@ -2112,7 +2108,7 @@ body {
 
       <!-- Copywriting --><!-- Copywriting --><!-- Copywriting -->
       <div class="disc-sheet" id="disc-copywriting" aria-label="Copywriting sheet">
-        <button class="disc-back-nav interactive" data-back="copywriting">← back</button>
+        <button class="disc-back-nav interactive" data-back="copywriting" data-i18n="disc-back-nav">← back</button>
         <span class="section-label disc-name" data-i18n="disc-cw-name">Copywriting</span>
         <span class="disc-tagline" data-i18n="disc-cw-tagline">every word must earn its place</span>
 
@@ -2143,7 +2139,7 @@ body {
 
       <!-- Video --><!-- Video -->
       <div class="disc-sheet" id="disc-video" aria-label="Video sheet">
-        <button class="disc-back-nav interactive" data-back="video">← back</button>
+        <button class="disc-back-nav interactive" data-back="video" data-i18n="disc-back-nav">← back</button>
         <span class="section-label disc-name" data-i18n="disc-v-name">Video</span>
         <span class="disc-tagline" data-i18n="disc-v-tagline">when the idea needs to move</span>
 
@@ -2156,7 +2152,7 @@ body {
                 <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
               </div>
               <div class="card-video-player"></div>
-              <p class="card-video-label">Black Friday spot</p>
+              <p class="card-video-label" data-i18n="disc-v-bf-label">Black Friday spot</p>
             </div>
           </div>
         </div>
@@ -2170,7 +2166,7 @@ body {
                 <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
               </div>
               <div class="card-video-player"></div>
-              <p class="card-video-label">Cyber Monday spot</p>
+              <p class="card-video-label" data-i18n="disc-v-cm-label">Cyber Monday spot</p>
             </div>
           </div>
         </div>
@@ -2184,14 +2180,14 @@ body {
                 <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
               </div>
               <div class="card-video-player"></div>
-              <p class="card-video-label">Mattias Adolfsson's Course Trailer</p>
+              <p class="card-video-label" data-i18n="disc-v-mattias-label">Mattias Adolfsson's Course Trailer</p>
             </div>
             <div class="card-video-item">
               <div class="card-video-thumb-inline" data-video-id="3Z936wtVSFk" role="button" tabindex="0">
                 <div class="card-video-play-btn"><svg viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="white"/></svg></div>
               </div>
               <div class="card-video-player"></div>
-              <p class="card-video-label">Sarah Van Dongen's Course Trailer</p>
+              <p class="card-video-label" data-i18n="disc-v-sarah-label">Sarah Van Dongen's Course Trailer</p>
             </div>
           </div>
         </div>
@@ -2651,7 +2647,7 @@ body {
       'w3-metric': 'Professionnels du marketing atteints · 3 cours en ligne',
       'w4-insight': 'Donner une voix cohérente à une marque qui grandissait trop vite.',
       'w4-metric': 'Série B · kit presse et narrative',
-      'w-cta-read': 'Lire le cas →',
+      'w-cta-read': 'Voir →',
 
       // CV
       'cv-exp': 'Expérience',
@@ -2762,7 +2758,6 @@ body {
       'about-p5': 'En 2023, l\'IA a profondément transformé notre manière de travailler. J\'ai choisi de l\'aborder comme j\'aborde la communication : comme un outil dont la valeur dépend entièrement de la qualité de la réflexion derrière. Ce qui a commencé comme une curiosité est rapidement devenu une partie intégrante de mon processus.',
       'about-p6': 'Aujourd\'hui, je travaille à l\'endroit où se rencontrent instinct éditorial, cohérence de marque et nouveaux outils. Ce qui m\'intéresse, c\'est d\'aider les équipes à rester claires et alignées à mesure qu\'elles changent d\'échelle.',
       'about-pullquote': 'Quand le message est juste, tout le reste suit.',
-,
 
       // ── Work card case body FR ──────────────────────────────────────────────
       'w-cta-read': 'Lire →',
@@ -2817,6 +2812,15 @@ body {
       'disc-cd-cm-label': 'Spot Cyber Monday →',
       'disc-bm-dom-video': 'Domestika Plus — produit →',
 
+      // ── Navigation CTAs
+      'disc-back-nav': '← retour',
+      'cv-view-live': 'Voir en ligne →',
+
+      // ── Video disc sheet labels
+      'disc-v-bf-label': 'Spot Black Friday',
+      'disc-v-cm-label': 'Spot Cyber Monday',
+      'disc-v-mattias-label': 'Trailer — Mattias Adolfsson',
+      'disc-v-sarah-label': 'Trailer — Sarah Van Dongen',
 
     }
   };
@@ -2941,6 +2945,14 @@ body {
   });
 </script>
 
+
+
+  <!-- Language toggle — outside all containers so transform on sheet doesn't break fixed positioning -->
+  <div class="lang-toggle" aria-label="Language switcher">
+    <button class="lang-btn active" id="lang-en" aria-pressed="true">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" id="lang-fr" aria-pressed="false">FR</button>
+  </div>
 
   <div id="cursor-circle"></div>
   <div id="cursor-heart">♥</div>
